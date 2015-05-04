@@ -1,0 +1,194 @@
+<?php echo $this->doctype();
+$user = $this->identity();
+ ?>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta content="" name="description"/>
+		<meta content="" name="author"/>
+
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css"/>
+<!-- END GLOBAL MANDATORY STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<link href="assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.css" rel="stylesheet" type="text/css"/>
+<link href="assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.skinModern.css" rel="stylesheet" type="text/css"/>
+<!-- END PAGE LEVEL STYLES -->
+<!-- BEGIN THEME STYLES -->
+<link href="assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
+<link href="assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
+<link href="assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+<link href="assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
+		
+		
+		
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/font-awesome/css/font-awesome.min.css')
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/bootstrap/css/bootstrap.min.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/uniform/css/uniform.default.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/select2/select2.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/ion.rangeslider/css/ion.rangeSlider.Metronic.css')
+						->appendStylesheet($this->basePath() .'/assets/global/css/components.css')
+						->appendStylesheet($this->basePath() .'/assets/global/css/plugins.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/layout.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/themes/darkblue.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/custom.css')						
+		?>
+    </head>
+<body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
+<!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+		<div class="page-logo">
+			<a href="index.html">
+			<img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/logo.png"  height="24px" alt="logo" class="logo-default"/>
+			</a>
+		</div>
+		
+				<!-- BEGIN RESPONSIVE MENU TOGGLER -->
+		<a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+		</a>
+		<!-- END RESPONSIVE MENU TOGGLER -->
+		<!-- BEGIN TOP NAVIGATION MENU -->
+		<?php if($user = $this->identity()) { ?>
+		<div class="top-menu">
+			<ul class="nav navbar-nav pull-right">
+				<!-- END TODO DROPDOWN -->
+				<!-- BEGIN USER LOGIN DROPDOWN -->
+				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+				<li class="dropdown dropdown-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+					<span class="username username-hide-on-mobile">
+					<?php echo $this->escapeHtml($user->getFirstname()); ?>&nbsp;<?php echo $this->escapeHtml($user->getLastname()); ?> </span>
+					<i class="fa fa-angle-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-default">
+						<li>
+							<a href="extra_profile.html">
+							<i class="icon-user"></i> My Profile </a>
+						</li>
+						<li class="divider">
+						</li>
+						<li>
+							<a href="<?php echo $this->url('user-index', array('action' => 'logout'));?>">
+							<i class="icon-key"></i> Log Out </a>
+						</li>
+					</ul>
+				</li>
+				<!-- END USER LOGIN DROPDOWN -->
+				<!-- BEGIN QUICK SIDEBAR TOGGLER -->
+				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+				<li class="dropdown dropdown-quick-sidebar-toggler">
+					<a href="javascript:;" class="dropdown-toggle">
+					<i class="icon-logout"></i>
+					</a>
+				</li>
+				<!-- END QUICK SIDEBAR TOGGLER -->
+			</ul>
+		</div>
+		<!-- END TOP NAVIGATION MENU -->
+		<?php } ?>
+
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper">
+		<div class="page-content">
+			 <?php echo $this->content; ?>
+		</div>
+	</div>
+	<!-- END QUICK SIDEBAR -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 2015 &copy; Early Design.
+	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/respond.min.js"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! Load jquery-ui-1.10.3.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/ion.rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
+
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="<?php echo $this->basePath(); ?>/assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/layout/scripts/layout.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/layout/scripts/quick-sidebar.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/pages/scripts/components-ion-sliders.js"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/pages/scripts/multiselect.min.js"></script>
+<script src="<?php echo $this->basePath(); ?>/assets/admin/pages/scripts/charts-amcharts.js"></script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+jQuery(document).ready(function() {       
+   // initiate layout and plugins
+   Metronic.init(); // init metronic core components
+Layout.init(); // init current layout
+QuickSidebar.init(); // init quick sidebar
+Demo.init(); // init demo features  // set current page
+   ComponentsIonSliders.init();
+    ChartsAmcharts.init();
+});
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

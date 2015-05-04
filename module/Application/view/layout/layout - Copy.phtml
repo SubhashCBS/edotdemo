@@ -1,0 +1,82 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta content="" name="description"/>
+		<meta content="" name="author"/>
+
+        <?php echo $this->headTitle('ZF2 '. $this->translate('Skeleton Application'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php echo $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+		<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+
+        <!-- Le styles -->
+        <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/font-awesome/css/font-awesome.min.css')
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/simple-line-icons/simple-line-icons.min.css')
+                        ->appendStylesheet($this->basePath() . '/assets/global/plugins/bootstrap/css/bootstrap.min.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/uniform/css/uniform.default.css')
+						->appendStylesheet($this->basePath() . '/assets/global/plugins/select2/select2.css')
+						->appendStylesheet($this->basePath() . '/assets/admin/pages/css/login3.css')
+						->appendStylesheet($this->basePath() .'/assets/global/css/components.css')
+						->appendStylesheet($this->basePath() .'/assets/global/css/plugins.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/layout.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/themes/darkblue.css')
+						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/custom.css')						
+		?>
+    </head>
+    <body>
+		<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+		<div class="menu-toggler sidebar-toggler">
+		</div>
+		<!-- END SIDEBAR TOGGLER BUTTON -->
+		<!-- BEGIN LOGO -->
+		<div class="logo">
+			<a href="index.html">
+			<img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/logo-big.png" alt=""/>
+			</a>
+		</div>
+		<!-- END LOGO -->
+		<!-- BEGIN LOGIN -->
+		<div class="content">
+            <?php echo $this->content; ?>
+        </div> <!-- /container -->
+
+		<div class="copyright">
+			 2014 © Metronic. Admin Dashboard Template.
+		</div>
+		
+						
+        <!-- Scripts -->
+        <?php echo $this->headScript()
+			->appendFile($this->basePath() . '/js/jquery.min.js')
+            ->appendFile($this->basePath() . '/js/bootstrap.min.js')
+            ->appendFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+            ->appendFile($this->basePath() . '/js/html5shiv.js',   'text/javascript', array('conditional' => 'lt IE 9',))
+			->appendFile($this->basePath() . '/assets/global/plugins/jquery-migrate.min.js')
+			->appendFile($this->basePath() . '/assets/global/plugins/jquery.blockui.min.js')
+			->appendFile($this->basePath() . '/assets/global/plugins/jquery.cokie.min.js')
+			->appendFile($this->basePath() . '/assets/global/plugins/uniform/jquery.uniform.min.js')
+			->appendFile($this->basePath() . '/assets/global/plugins/jquery-validation/js/jquery.validate.min.js')
+			->appendFile($this->basePath() . '/assets/global/plugins/select2/select2.min.js')
+			->appendFile($this->basePath() . '/assets/global/scripts/metronic.js')
+			->appendFile($this->basePath() . '/assets/admin/layout/scripts/layout.js')
+			->appendFile($this->basePath() . '/assets/admin/layout/scripts/demo.js')
+        ; ?>
+
+		<script>
+		jQuery(document).ready(function() {     
+			Metronic.init(); // init metronic core components
+			Layout.init(); // init current layout
+			Login.init();
+			Demo.init();
+		});
+		</script>
+
+        <?php echo $this->inlineScript() ?>
+    </body>
+</html>
