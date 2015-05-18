@@ -3,7 +3,7 @@
  * 
 */
 
-namespace Coolroof\Entity;
+namespace coolroof\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 

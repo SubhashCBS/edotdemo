@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Coolroof;
+namespace coolroof;
 
  // Add these import statements:
-use Coolroof\Model\GlassType;
-use Coolroof\Model\GlassTypeTable;
+use coolroof\Model\GlassType;
+use coolroof\Model\GlassTypeTable;
 use Zend\Db\ResultSet\ResultSet;
  use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;

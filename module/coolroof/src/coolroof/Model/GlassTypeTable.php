@@ -1,5 +1,5 @@
 <?php
-namespace Coolroof\Model;
+namespace coolroof\Model;
 
  use Zend\Db\TableGateway\TableGateway;
  use Zend\Db\Sql\Sql;

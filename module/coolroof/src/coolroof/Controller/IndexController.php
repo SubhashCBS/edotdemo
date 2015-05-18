@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Coolroof\Controller;
+namespace coolroof\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Coolroof\Entity\Project;
+use coolroof\Entity\Project;
 $user_id = 1;
 
 class IndexController extends AbstractActionController
@@ -91,7 +91,7 @@ class IndexController extends AbstractActionController
      {
          if (!$this->glasstypesTable) {
              $sm = $this->getServiceLocator();
-             $this->glasstypesTable = $sm->get('Coolroof\Model\GlassTypeTable');
+             $this->glasstypesTable = $sm->get('coolroof\Model\GlassTypeTable');
          }
          return $this->glasstypesTable;
      }
@@ -100,7 +100,7 @@ class IndexController extends AbstractActionController
      {
          if (!$this->ProjectsTable) {
              $sm = $this->getServiceLocator();
-             $this->projectsTable= $sm->get('Coolroof\Model\ProjectsTable');
+             $this->projectsTable= $sm->get('coolroof\Model\ProjectsTable');
          }
          return $this->projectsTable;
      }
