@@ -5,6 +5,7 @@ var ComponentsIonSliders = function () {
         init: function () {
 
             $("#range_1").ionRangeSlider({
+				type: "single",
                 min: 0,
                 max: 360,
                 from: 0,
@@ -12,7 +13,10 @@ var ComponentsIonSliders = function () {
                 step: 1,
                 postfix: "°",
                 prettify: true,
-                hasGrid: true
+                hasGrid: true,
+				onChange: function (data) {
+					$("#range_1").val(data.fromNumber);
+				}
             });
 			
 			$("#range_1-min").val(0);
@@ -25,7 +29,10 @@ var ComponentsIonSliders = function () {
                 to: 100,
                 step: 1,
                 prettify: false,
-                hasGrid: true
+                hasGrid: true,
+				onChange: function (data) {
+					$("#range_2").val(data.fromNumber);
+				}
             });
 			
 			$("#range_2-min").val(1);
@@ -67,7 +74,10 @@ var ComponentsIonSliders = function () {
                 to: 2,
                 step: 1,
                 prettify: false,
-                hasGrid: true
+                hasGrid: true,
+				onChange: function (data) {
+					$("#range_4").val(data.fromNumber);
+				}
             });
 			
 			$("#range_4-min").val(0);
@@ -206,11 +216,27 @@ $(".lock").on("click", function(){
 	
 	var id = $(this).attr("id");
 	
+	if(id == 1)
+	{
+		$(".azimuth").val();
+	}
+	
+	if(id == 2)
+	{
+		$(".aspect-ratio").val();
+	}
+	
+	if(id == 4)
+	{
+		$(".over-hang").val();
+	}
+	
 	if($(this).find("img").attr('src') == "/demo/public/assets/admin/layout/img/lock.png")
 	{
 		$(this).find("img").attr("src", "/demo/public/assets/admin/layout/img/unlock.png");
 		$("#range_"+id+"_box").hide();
 		$("#range_"+id+"_text").show();
+		
 	}
 	else
 	{
