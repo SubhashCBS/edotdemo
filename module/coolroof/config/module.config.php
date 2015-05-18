@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'coolroof\Controller\Index',
+                        'controller' => 'Coolroof\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
@@ -29,7 +29,7 @@ return array(
                 'options' => array(
                     'route'    => '/coolroof',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'coolroof\Controller',
+                        '__NAMESPACE__' => 'Coolroof\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -73,7 +73,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'coolroof\Controller\Index' => 'coolroof\Controller\IndexController'
+            'Coolroof\Controller\Index' => 'Coolroof\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -86,11 +86,33 @@ return array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'coolroof/index/index' => __DIR__ . '/../view/application/index/index.phtml',
 			'coolroof/index/library' => __DIR__ . '/../view/application/index/library.phtml',
+			'coolroof/index/projects' => __DIR__ . '/../view/application/index/projects.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+    ),
+    'doctrine' => array(
+        'configuration' => array(
+            'orm_default' => array(
+                'generate_proxies' => true,
+            ),
+        ),
+        'driver' => array(
+            'coolroof_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(
+                    __DIR__ . '/../src/Coolroof/Entity',
+                ),
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Coolroof\Entity' => 'coolroof_driver',
+                ),
+            ),
         ),
     ),
     // Placeholder for console routes

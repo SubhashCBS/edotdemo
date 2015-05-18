@@ -7,11 +7,11 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace coolroof;
+namespace Coolroof;
 
  // Add these import statements:
-use coolroof\Model\GlassType;
-use coolroof\Model\GlassTypeTable;
+use Coolroof\Model\GlassType;
+use Coolroof\Model\GlassTypeTable;
 use Zend\Db\ResultSet\ResultSet;
  use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\ModuleRouteListener;
@@ -50,6 +50,17 @@ class Module
 					 $tableGateway = $sm->get('GlassTypeTableGateway');
 					 $table = new GlassTypeTable($tableGateway);
 					 return $table;
+				 },
+				 'coolroof\Model\ProjectsTable' =>  function($sm) {
+					 $tableGateway = $sm->get('ProjectsTableGateway');
+					 $table = new ProjectsTable($tableGateway);
+					 return $table;
+				 },				 
+				 'ProjectsTableGateway' => function ($sm) {
+					 $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+					 $resultSetPrototype = new ResultSet();
+					 $resultSetPrototype->setArrayObjectPrototype(new Projects());
+					 return new TableGateway('projects', $dbAdapter, null, $resultSetPrototype);
 				 },
 				 'GlassTypeTableGateway' => function ($sm) {
 					 $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
