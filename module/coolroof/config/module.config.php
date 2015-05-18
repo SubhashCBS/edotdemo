@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Coolroof\Controller\Index',
+                        'controller' => 'coolroof\Controller\Index',
                         'action'     => 'index',
                     ),
                 ),
@@ -29,7 +29,7 @@ return array(
                 'options' => array(
                     'route'    => '/coolroof',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Coolroof\Controller',
+                        '__NAMESPACE__' => 'coolroof\Controller',
                         'controller'    => 'Index',
                         'action'        => 'index',
                     ),
@@ -73,7 +73,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Coolroof\Controller\Index' => 'Coolroof\Controller\IndexController'
+            'coolroof\Controller\Index' => 'coolroof\Controller\IndexController'
         ),
     ),
     'view_manager' => array(
@@ -105,12 +105,12 @@ return array(
                 'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
                 'cache' => 'array',
                 'paths' => array(
-                    __DIR__ . '/../src/Coolroof/Entity',
+                    __DIR__ . '/../src/coolroof/Entity',
                 ),
             ),
             'orm_default' => array(
                 'drivers' => array(
-                    'Coolroof\Entity' => 'coolroof_driver',
+                    'coolroof\Entity' => 'coolroof_driver',
                 ),
             ),
         ),
