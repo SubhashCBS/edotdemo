@@ -243,6 +243,116 @@ Demo.init(); // init demo features  // set current page
 <script src="<?php echo $this->basePath(); ?>/assets/admin/graph/xp_progress.js"></script>
 
 
+<script type="text/javascript">
+
+
+
+            
+            $(document).ready(function() {
+			//alert("ok");
+            /*(var sumofvarq="<?php echo $sumofvarq; ?>";
+            //to adjust the left for mygird div so that the table gets displayed in the center
+            function adjustleftofmygrid(sumofvarq){
+                var no=36-(sumofvarq-4)*4;
+                document.getElementById("myGrid").style.left=''+no+'%';
+            }
+
+            adjustleftofmygrid(sumofvarq);*/
+            var dimensions = new Filter();
+            var highlighter = new Selector();
+            
+		    
+            dimensions.bind('change:filtered', function() {
+            var data = dimensions.get('data');
+            var filtered = dimensions.get('filtered');
+            var data_size = _(data).size();
+            var filtered_size = _(filtered).size();
+            pie.update(filtered);
+            totals.update([filtered_size, data_size - filtered_size]);
+            
+            var opacity = _([2/Math.pow(filtered_size,0.37), 100]).min();
+            $('#line_opacity').val(opacity).change();
+            });
+            
+            highlighter.bind('change:selected', function() {
+            var highlighted = this.get('selected');
+            pc.highlight(highlighted);
+            });
+            
+            $('#remove_selected').click(function() {
+            dimensions.outliers();
+            pc.update(dimensions.get('data'));
+            pc.render();
+            dimensions.trigger('change:filtered');
+            return false;
+            });
+            
+            $('#keep_selected').click(function() {
+            dimensions.inliers();
+            pc.update(dimensions.get('data'));
+            pc.render();
+            dimensions.trigger('change:filtered');
+            return false;
+            });
+            
+            $('#export_selected').click(function() {
+            var data = dimensions.get('filtered');
+            var keys = _.keys(data[0]);
+            var csv = _(keys).map(function(d) { return '"' + addslashes(d) + '"'; }).join(",");
+            _(data).each(function(row) {
+            	csv += "\n";
+            	csv += _(keys).map(function(k) {
+            		var val = row[k];
+            		if (_.isString(val)) {
+            		return '"' + addslashes(val) + '"';
+            		}
+            		if (_.isNumber(val)) {
+            		return val;
+            		}
+            		if (_.isNull(val)) {
+            		return "";
+            		}
+            		}).join(",");
+            	});
+            var uriContent = "data:application/octet-stream," + encodeURIComponent(csv);
+            var myWindow = window.open(uriContent, "Nutrient CSV");
+            myWindow.focus();
+            return false;
+            });
+            
+            $('#line_opacity').change(function() {
+            var val = $(this).val();
+            $('#parallel .foreground path').css('stroke-opacity', val.toString());
+            $('#opacity_level').html((Math.round(val*10000)/100) + "%");
+            });
+            
+            $('#parallel').resize(function() {
+            // vertical full screen
+            pc.render();
+            var val = $('#line_opacity').val();
+            $('#parallel .foreground path').css('stroke-opacity', val.toString());
+            });
+            
+            $('#parallel').resizable({
+            handles: 's',
+            resize: function () { return false; }
+            });
+            
+            /*$('#myGrid').resizable({
+            handles: 's'
+            });*/
+            
+            function addslashes( str ) {
+            return (str+'')
+            .replace(/\"/g, "\"\"")        // escape double quotes
+            .replace(/\0/g, "\\0");        // replace nulls with 0
+            };
+            
+            });
+            
+         </script>
+
+
 <!-- END JAVASCRIPTS -->
 </body>
 <!-- END BODY -->

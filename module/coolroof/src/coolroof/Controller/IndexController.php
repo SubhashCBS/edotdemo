@@ -129,8 +129,19 @@ class IndexController extends AbstractActionController
 		}
 		
 		$ashgc = $_POST['glass-types'];
+		
+		$wwr = array();
 
-		$wwr = $_POST['wwr'];
+		foreach($_POST['wwr'] as $wr)
+		{
+			if(!empty($wr) & $wr != 0)
+			{
+				$wwr[] = $wr;
+			}
+		
+		}
+		
+		
 		$_POST['over-hang'] = array(10);
 		if(is_array($_POST['over-hang']))
 		{
@@ -149,20 +160,20 @@ class IndexController extends AbstractActionController
 		$hvactype2=6;
 		$ptotal_area=50;
 		$location2=2;
-		extract($_POST);
-		extract($_GET);
+		//extract($_POST);
+		//extract($_GET);
 
-		echo $unique_counter;
+		//echo $unique_counter;
 
 		$old = umask(0);
-		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
+		mkdir($_SERVER['DOCUMENT_ROOT']."/demo/working_directory/parametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
 		umask($old);
 
 
-		sort($azi);
+		/*sort($azi);
 		sort($wwr);
 		sort($depth);
-		sort($lbybratio);
+		sort($lbybratio);*/
 
 		$aazimuth = $azi;
 		$awwr = $wwr;
@@ -173,13 +184,13 @@ class IndexController extends AbstractActionController
 		print_r($awwr);
 		print_r($adepth);
 		print_r($aratio);
-		
+		//exit;
 		/*---------------------- make a copy of ini file for every user--------------------*/
 		$fileno=1;
-		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
-		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
+		$working_dir=$_SERVER['DOCUMENT_ROOT']."/demo/working_directory/parametric/".$unique_counter;
+		$working_directory=$_SERVER['DOCUMENT_ROOT']."/demo/working_directory/parametric/".$unique_counter;
 
-		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/optLinux_template.ini";
+		$file=$_SERVER['DOCUMENT_ROOT']."/demo/optLinux_template.ini";
 		$file1 = fopen($file, "r") or die("can't open template file for reading");
 		$theData = fread($file1, filesize($file));
 		fclose($file1);
@@ -190,7 +201,7 @@ class IndexController extends AbstractActionController
 
 		/*---------------------- make a copy of cfg file for every user--------------------*/
 
-		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/EnergyPlusLinux.cfg";
+		$file=$_SERVER['DOCUMENT_ROOT']."/demo/EnergyPlusLinux.cfg";
 		$file1 = fopen($file, "r") or die("can't open template file for reading");
 		$theData = fread($file1, filesize($file));
 		fclose($file1);
@@ -206,7 +217,7 @@ class IndexController extends AbstractActionController
 		$filecontent="";
 		for($x=0;$x<sizeof($aazimuth);$x++)
 		{
-			for($y=0;$y<sizeof($awwr);$y++)
+			for($t=0;$t<sizeof($avlt);$t++)
 			{
 				for($z=0;$z<sizeof($adepth);$z++)
 				{
@@ -218,7 +229,7 @@ class IndexController extends AbstractActionController
 						for($u=0;$u<sizeof($au_factor);$u++)
 						{
 						
-						for($t=0;$t<sizeof($avlt);$t++)
+						for($y=0;$y<sizeof($awwr);$y++)
 						{
 						
 						
@@ -233,7 +244,7 @@ class IndexController extends AbstractActionController
 							$filecontent=$filecontent." \n"	;
 							/*---------------------- store data of template file for every user in a variable--------------------*/
 
-							$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/tutorial_template.idf";
+							$file=$_SERVER['DOCUMENT_ROOT']."/demo/tutorial_template.idf";
 							$file1 = fopen($file, "r") or die("can't open template file for reading");
 							$template_file_data = fread($file1, filesize($file));//stores the data of template file in a variable
 							fclose($file1);
@@ -242,7 +253,7 @@ class IndexController extends AbstractActionController
 							
 							/*---------------------- make a copy of idf file for every user--------------------*/
 
-							/*$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/tutorial.idf";
+							/*$file=$_SERVER['DOCUMENT_ROOT']."/demo/tutorial.idf";
 							$file1 = fopen($file, "r") or die("can't open template file for reading");
 							$theData = fread($file1, filesize($file));
 							fclose($file1);
@@ -331,7 +342,7 @@ class IndexController extends AbstractActionController
 		}
 		else
 		{*/
-			/*$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter." ".$cityname;
+			/*$str = $_SERVER['DOCUMENT_ROOT']."/demo/working_directory/parametric/".$unique_counter." ".$cityname;
 				fputs ($fp, $str);
 				$msg="";
 				$msg=fgets($fp,17);
@@ -623,6 +634,7 @@ class IndexController extends AbstractActionController
         
 
 	 }
+
 	 
 	public function addhvac($template_file_data,$hvactype2){
 
