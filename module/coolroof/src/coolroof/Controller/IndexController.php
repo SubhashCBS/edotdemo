@@ -107,6 +107,8 @@ class IndexController extends AbstractActionController
 	 
 	 public function mycommandfilegeneratorAction()
 	 {
+		//echo "<pre>";
+		//print_r($_POST);
 		
 		$unique_counter = time();
 		
@@ -142,7 +144,7 @@ class IndexController extends AbstractActionController
 		}
 		
 		
-		$_POST['over-hang'] = array(10);
+		//$_POST['over-hang'] = array(10);
 		if(is_array($_POST['over-hang']))
 		{
 			$depth = $_POST['over-hang'];
@@ -152,8 +154,21 @@ class IndexController extends AbstractActionController
 			$depth = array($_POST['over-hang']);
 		}
 			
-		$au_factor= $_POST['roof-type'];
-		$avlt =  $_POST['wall-type'];
+			
+		if($_POST['wwr-direction'] == 'different_dir')
+		{
+			$au_factor = array(0.5);
+			$avlt = array(0.75);
+		}
+		else
+		{
+			$au_factor = $_POST['roof-type'];
+			$avlt =  $_POST['wall-type'];
+		}
+		
+		$au_factor = array_unique($au_factor);
+		$avlt = array_unique($avlt);
+		
 		$glass_types =  $_POST['glass-types'];
 			
 		
@@ -184,6 +199,9 @@ class IndexController extends AbstractActionController
 		print_r($awwr);
 		print_r($adepth);
 		print_r($aratio);
+		print_r($avlt);
+		print_r($au_factor);
+		print_r($glass_types);
 		//exit;
 		/*---------------------- make a copy of ini file for every user--------------------*/
 		$fileno=1;
@@ -211,28 +229,28 @@ class IndexController extends AbstractActionController
 		fwrite($file1,$theData);
 		fclose($file1);
 
-		echo "sizeof ".sizeof($aazimuth).sizeof($awwr).sizeof($adepth).sizeof($aratio).sizeof($ashgc);
+		echo "count ".count($aazimuth).count($awwr).count($adepth).count($aratio).count($ashgc);
 
 		$filesave=fopen($working_dir."/parametricvalues.txt",'w');
 		$filecontent="";
-		for($x=0;$x<sizeof($aazimuth);$x++)
+		for($x=0;$x<count($aazimuth);$x++)
 		{
-			for($t=0;$t<sizeof($avlt);$t++)
+			for($t=0;$t<count($avlt);$t++)
 			{
-				for($z=0;$z<sizeof($adepth);$z++)
+				for($z=0;$z<count($adepth);$z++)
 				{
-					for($w=0;$w<sizeof($aratio);$w++)
+					for($w=0;$w<count($aratio);$w++)
 					{
-						for($v=0;$v<sizeof($ashgc);$v++)
+						for($v=0;$v<count($ashgc);$v++)
 						{
 						
-						for($u=0;$u<sizeof($au_factor);$u++)
+						for($u=0;$u<count($au_factor);$u++)
 						{
 						
-						for($y=0;$y<sizeof($awwr);$y++)
+						for($y=0;$y<count($awwr);$y++)
 						{
 						
-						
+						echo "hi";
 							
 							$filecontent=$filecontent.$aazimuth[$x];		
 							$filecontent=$filecontent." ".$awwr[$y];		
@@ -241,7 +259,7 @@ class IndexController extends AbstractActionController
 							$filecontent=$filecontent." ".$ashgc[$v];		
 							$filecontent=$filecontent." ".$au_factor[$u];		
 							$filecontent=$filecontent." ".$avlt[$t];
-							$filecontent=$filecontent." \n"	;
+							echo $filecontent=$filecontent." \n"	;
 							/*---------------------- store data of template file for every user in a variable--------------------*/
 
 							$file=$_SERVER['DOCUMENT_ROOT']."/demo/tutorial_template.idf";
@@ -291,7 +309,7 @@ class IndexController extends AbstractActionController
 							$file=$fileno.".idf";
 							$file1 = fopen("$working_dir/$file", "w") or die("can't open abcde  model template for writing");
 							
-							echo $template_file_data;
+							//echo $template_file_data;
 							
 							fwrite($file1,$template_file_data);
 							fclose($file1);
@@ -628,11 +646,17 @@ class IndexController extends AbstractActionController
          }
          
          else{
-         	echo "Will update new results shortly".$var_quantities;
-         	echo("<meta http-equiv=\"refresh\" content=\"10;URL=displaygenopt_ver1.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities."&total_area=".$total_area."\">");
+         	//echo "Will update new results shortly".$var_quantities;
+         	//echo("<meta http-equiv=\"refresh\" content=\"10;URL=displaygenopt_ver1.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities."&total_area=".$total_area."\">");
          }
         
+		/* $viewModel = new ViewModel(array(
+				'foo' => 'bar'
+			));
 
+			$viewModel->setTerminal(true);
+
+			return $viewModel;*/
 	 }
 
 	 
