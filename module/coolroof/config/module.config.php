@@ -85,6 +85,7 @@ return array(
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'coolroof/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+			'coolroof/index/mycommandfilegenerator' => __DIR__ . '/../view/application/index/graph.phtml',
 			'coolroof/index/library' => __DIR__ . '/../view/application/index/library.phtml',
 			'coolroof/index/projects' => __DIR__ . '/../view/application/index/projects.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
