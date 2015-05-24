@@ -35,13 +35,14 @@ namespace coolroof\Model;
 
 	public function fetchGlassinfo($glass_id) 
     { 
-        $select = new \Zend\Db\Sql\Select ; 
-        $select->from('glasstypes'); 
-        $select->columns(array('VisibleTrans','SolarHeat')); 
-        $select->where("glasstypes.id = ".$glass_id);     
-       //$select->getSqlString(); 
-        $resultSet = $this->tableGateway->selectWith($select); 
-       return $resultSet; 
+        $id  = (int) $glass_id;
+         $rowset = $this->tableGateway->select(array('id' => $id));
+         $row = $rowset->current();
+         if (!$row) {
+             //throw new \Exception("Could not find row $id");
+         }
+         return $row; 
+ 
     }
 	
 	

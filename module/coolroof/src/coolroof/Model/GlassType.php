@@ -8,9 +8,9 @@ namespace coolroof\Model;
      public $name;
 	 public $code;
 	 public $USI;
-	public $solar_heat;
-	public $shading;
-	public $visible_trans;
+	public $SolarHeat;
+	public $Shading;
+	public $VisibleTrans;
 
      public function exchangeArray($data)
      {
