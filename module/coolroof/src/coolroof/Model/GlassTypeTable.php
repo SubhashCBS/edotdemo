@@ -37,7 +37,7 @@ namespace coolroof\Model;
     { 
         $select = new \Zend\Db\Sql\Select ; 
         $select->from('glasstypes'); 
-        $select->columns(array('VisibleTrans as vlt','SolarHeat as u_factor')); 
+        $select->columns(array('VisibleTrans','SolarHeat')); 
         $select->where("glasstypes.id = ".$glass_id);     
        //$select->getSqlString(); 
         $resultSet = $this->tableGateway->selectWith($select); 
