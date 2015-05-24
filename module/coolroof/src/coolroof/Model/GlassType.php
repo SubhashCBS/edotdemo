@@ -18,9 +18,9 @@ namespace coolroof\Model;
          $this->name  = (!empty($data['name'])) ? $data['name'] : null;
 		 $this->code  = (!empty($data['code'])) ? $data['code'] : null;
 		 $this->USI  = (!empty($data['U-SI'])) ? $data['U-SI'] : null;
-		 $this->solar_heat  = (!empty($data['Solar Heat'])) ? $data['Solar Heat'] : null;
+		 $this->solar_heat  = (!empty($data['SolarHeat'])) ? $data['Solar Heat'] : null;
 		 $this->shading  = (!empty($data['Shading'])) ? $data['Shading'] : null;
-		 $this->visible_trans  = (!empty($data['Visible Trans'])) ? $data['Visible Trans'] : null;
+		 $this->visible_trans  = (!empty($data['VisibleTrans'])) ? $data['Visible Trans'] : null;
      }
  }
 ?>
