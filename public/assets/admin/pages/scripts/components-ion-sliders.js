@@ -210,7 +210,29 @@ $(".wwr").on("change", function(){
 		});
 		$("#r5").show();
 	}
+	
+	
+	
 });
+
+$(".layers").on("change", function(){
+
+$(".ews").hide();
+
+	$.each( $(".layers"), function( key, value ) {
+		if($(this).val() == 9)
+		{
+			var x = key+1;
+			
+			$("#ews"+x).show();
+		}
+		
+	});
+
+
+});
+
+
 
 $(".lock").on("click", function(){
 	
@@ -263,7 +285,7 @@ $("#r5").hide();
 $("#uglass").on("click", function(){
 
 
-	var uno = $("#us").val();
+	var uno = 5;
 	
 	var j = 0; 
 	$('#uglass :selected').each(function(i, selected){ 
@@ -271,7 +293,7 @@ $("#uglass").on("click", function(){
 	});
 	
 	
-	if(j > parseInt(uno))
+	if(j > 5)
 	{
 		alert("User can select only "+uno+" glasses");
 		return false;
