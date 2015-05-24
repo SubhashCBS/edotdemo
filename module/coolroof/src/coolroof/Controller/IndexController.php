@@ -276,16 +276,17 @@ class IndexController extends AbstractActionController
 							$lbybratio_breadth_value=$ptotal_area/$lbybratio_length_value;
 							$template_file_data = str_replace(array("%lbybratio_length%","%lbybratio_breadth%"),array($lbybratio_length_value,$lbybratio_breadth_value),$template_file_data);
 							
+							if(isset($glass_types[$w]))
+							{
+							$template_file_data=str_replace(array("%shgc%"), array($glass_types[$w]),$template_file_data);
 							
-							$template_file_data=str_replace(array("%shgc%"), array($glass_types[$v]),$template_file_data);
 							
-							
-							$glass_info = $this->getglasstypesTable()->fetchGlassinfo($glass_types[$v]);
+							$glass_info = $this->getglasstypesTable()->fetchGlassinfo($glass_types[$w]);
 							
 							$template_file_data=str_replace(array("%vlt%"), array($glass_info->VisibleTrans),$template_file_data);
 							$template_file_data=str_replace(array("%u_factor%"), array($glass_info->SolarHeat),$template_file_data);
 							
-
+							}
 
 
 							$file=$fileno.".idf";
