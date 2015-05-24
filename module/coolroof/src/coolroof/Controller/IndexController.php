@@ -278,13 +278,15 @@ class IndexController extends AbstractActionController
 							
 							if(isset($glass_types[$w]))
 							{
-							$template_file_data=str_replace(array("%shgc%"), array($glass_types[$w]),$template_file_data);
-							
-							
 							$glass_info = $this->getglasstypesTable()->fetchGlassinfo($glass_types[$w]);
 							
+							$template_file_data=str_replace(array("%shgc%"), array($glass_info->SolarHeat),$template_file_data);
+							
+							
+							
+							
 							$template_file_data=str_replace(array("%vlt%"), array($glass_info->VisibleTrans),$template_file_data);
-							$template_file_data=str_replace(array("%u_factor%"), array($glass_info->SolarHeat),$template_file_data);
+							$template_file_data=str_replace(array("%u_factor%"), array($glass_info->USI),$template_file_data);
 							
 							}
 
