@@ -330,7 +330,7 @@ class IndexController extends AbstractActionController
 			$cityname="Banglore.epw";
 		}
 
-		/*$host="localhost";
+		$host="localhost";
 		$port =5436;  //port number
 		$fp = fsockopen($host, $port, $errno, $errstr);
 		if( !$fp)
@@ -345,7 +345,7 @@ class IndexController extends AbstractActionController
 		}
 		else
 		{
-			$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter." ".$cityname;
+			$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
 				fputs ($fp, $str);
 				$msg="";
 				$msg=fgets($fp,17);
@@ -358,7 +358,7 @@ class IndexController extends AbstractActionController
 
 				close($fp);
 		}
-		*/
+		
 			//return new ViewModel();
 			
 		$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
