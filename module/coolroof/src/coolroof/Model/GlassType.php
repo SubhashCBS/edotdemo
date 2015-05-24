@@ -17,10 +17,10 @@ namespace coolroof\Model;
          $this->id     = (!empty($data['id'])) ? $data['id'] : null;
          $this->name  = (!empty($data['name'])) ? $data['name'] : null;
 		 $this->code  = (!empty($data['code'])) ? $data['code'] : null;
-		 $this->USI  = (!empty($data['U-SI'])) ? $data['U-SI'] : null;
-		 $this->solar_heat  = (!empty($data['SolarHeat'])) ? $data['SolarHeat'] : null;
-		 $this->shading  = (!empty($data['Shading'])) ? $data['Shading'] : null;
-		 $this->visible_trans  = (!empty($data['VisibleTrans'])) ? $data['VisibleTrans'] : null;
+		 $this->USI  = (!empty($data['USI'])) ? $data['USI'] : null;
+		 $this->SolarHeat  = (!empty($data['SolarHeat'])) ? $data['SolarHeat'] : null;
+		 $this->Shading  = (!empty($data['Shading'])) ? $data['Shading'] : null;
+		 $this->VisibleTrans  = (!empty($data['VisibleTrans'])) ? $data['VisibleTrans'] : null;
      }
  }
 ?>
