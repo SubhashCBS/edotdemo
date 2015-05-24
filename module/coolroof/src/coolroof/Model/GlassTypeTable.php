@@ -33,6 +33,18 @@ namespace coolroof\Model;
        return $resultSet; 
     }
 
+	public function fetchGlassinfo($glass_id) 
+    { 
+        $select = new \Zend\Db\Sql\Select ; 
+        $select->from('glasstypes'); 
+        $select->columns(array('Visible Trans as vlt','Solar Heat as u_factor')); 
+        $select->where("glasstypes.id = ".$glass_id);     
+       //$select->getSqlString(); 
+        $resultSet = $this->tableGateway->selectWith($select); 
+       return $resultSet; 
+    }
+	
+	
      public function saveUserGlasses($data)
      { 
 		//print_r($data);

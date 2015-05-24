@@ -304,16 +304,6 @@
 														
 							<div class="form-group">
 								<label class="control-label"><strong>Glass Type</strong> </label><div style="clear:both"></div>
-								No of Selections:- <select id="us" style="display:inline-block" class=" input-small">
-									<?php
-									for($i = 1; $i <=15; $i++)
-									{
-									?>
-										<option><?php echo $i; ?></option>
-									<?php
-									}
-									?>
-								</select>
 								<?php
 									//mysql_connect("need4all.com.mysql", "need4all_com", "MeetvMysql");
 									//mysql_select_db("need4all_com");
@@ -323,14 +313,14 @@
 								<div style="clear:both;height:10px"></div>			
 								
 								<div class="col-xs-5">
-									<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple">
+									<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
 										<?php
 										$i = 0;
 										foreach($user_glass_types as $ug)
 										{
 											$i++;
 										?>
-											<option value="<?php echo $i; ?>"><?php echo $ug->name; ?></option>
+											<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->solar_heat; ?>,VLT-<?php echo $ug->visible_trans; ?>)</option>
 										<?php
 										}
 										?>
@@ -374,6 +364,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="roof-type[]" value="" id="ews1" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -389,6 +380,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="roof-type[]" value="" id="ews2" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -404,6 +396,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="roof-type[]" value="" id="ews3" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -419,6 +412,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="roof-type[]" value="" id="ews4" class="ews" style="display:none" />
 								</div>
 								
 								<div id="coolroof" style="display:none">
@@ -437,6 +431,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									
 								</div>
 								
 								<div style="">	
@@ -517,6 +512,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="wall-type[]" value="" id="ews5" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -532,6 +528,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="wall-type[]" value="" id="ews6" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -547,6 +544,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="wall-type[]" value="" id="ews7" class="ews" style="display:none" />
 								</div>
 								
 								<div style="">	
@@ -562,6 +560,7 @@
 										<option value="8">      Acoustic tile      </option>
 										<option value="9">     Insulation     </option>
 									</select>
+									<input type="text" name="wall-type[]" value="" id="ews8" class="ews" style="display:none" />
 								</div>
 							
 							</div>
@@ -581,7 +580,7 @@
 					</div>	
 					
 							<div class="form-group" Style="text-align:center">
-								<input type="button" onclick="setvalues()" class="btn blue" />
+								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
 								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
 							</div>
 						</div>
@@ -671,7 +670,7 @@ function setvalues()
 	
 	$.ajax({
   method: "POST",
-  url: "/edotdemo/public/coolroof/index/mycommandfilegenerator",
+  url: "/edotdemo/public/coolroof/mycommandfilegenerator",
   data: data
 	})
 	  .done(function( msg ) {

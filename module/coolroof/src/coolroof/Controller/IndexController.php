@@ -107,6 +107,7 @@ class IndexController extends AbstractActionController
 	 
 	 public function mycommandfilegeneratorAction()
 	 {
+	 error_reporting(0);
 		//echo "<pre>";
 		//print_r($_POST);
 		
@@ -114,31 +115,30 @@ class IndexController extends AbstractActionController
 		
 		if(is_array($_POST['azimuth']))
 		{
-			$azi = $_POST['azimuth'];
+			$azimuth = $_POST['azimuth'];
 		}
 		else
 		{
-			$azi = array($_POST['azimuth']);
+			$azimuth = array($_POST['azimuth']);
 		}
 		
 		if(is_array($_POST['aspect-ratio']))
 		{
-			$lbybratio = $_POST['aspect-ratio'];
+			$aspect_ratio = $_POST['aspect-ratio'];
 		}
 		else
 		{
-			$lbybratio = array($_POST['aspect-ratio']);
+			$aspect_ratio = array($_POST['aspect-ratio']);
 		}
 		
-		$ashgc = $_POST['glass-types'];
 		
-		$wwr = array();
+		$wall_ratio = array();
 
 		foreach($_POST['wwr'] as $wr)
 		{
 			if(!empty($wr) & $wr != 0)
 			{
-				$wwr[] = $wr;
+				$wall_ratio[] = $wr;
 			}
 		
 		}
@@ -147,27 +147,27 @@ class IndexController extends AbstractActionController
 		//$_POST['over-hang'] = array(10);
 		if(is_array($_POST['over-hang']))
 		{
-			$depth = $_POST['over-hang'];
+			$overhang = $_POST['over-hang'];
 		}
 		else
 		{
-			$depth = array($_POST['over-hang']);
+			$overhang = array($_POST['over-hang']);
 		}
 			
 			
 		if($_POST['wwr-direction'] == 'different_dir')
 		{
-			$au_factor = array(0.5);
-			$avlt = array(0.75);
+			$wall_type = array(0.5);
+			$root_type = array(0.75);
 		}
 		else
 		{
-			$au_factor = $_POST['roof-type'];
-			$avlt =  $_POST['wall-type'];
+			$wall_type = $_POST['wall-type'];
+			$roof_type =  $_POST['roof-type'];
 		}
 		
-		$au_factor = array_unique($au_factor);
-		$avlt = array_unique($avlt);
+		$wall_type = array_unique($wall_type);
+		$roof_type = array_unique($roof_type);
 		
 		$glass_types =  $_POST['glass-types'];
 			
@@ -175,37 +175,15 @@ class IndexController extends AbstractActionController
 		$hvactype2=6;
 		$ptotal_area=50;
 		$location2=2;
-		//extract($_POST);
-		//extract($_GET);
-
-		//echo $unique_counter;
-
+	
 		$old = umask(0);
 		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
 		umask($old);
 
-
-		/*sort($azi);
-		sort($wwr);
-		sort($depth);
-		sort($lbybratio);*/
-
-		$aazimuth = $azi;
-		$awwr = $wwr;
-		$adepth= $depth;
-		$aratio = $lbybratio;
-
-		print_r($azi);
-		print_r($awwr);
-		print_r($adepth);
-		print_r($aratio);
-		print_r($avlt);
-		print_r($au_factor);
-		print_r($glass_types);
 		//exit;
 		/*---------------------- make a copy of ini file for every user--------------------*/
 		$fileno=1;
-		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotedotdemo/working_directory/parametric/".$unique_counter;
+		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
 		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
 
 		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/optLinux_template.ini";
@@ -229,37 +207,37 @@ class IndexController extends AbstractActionController
 		fwrite($file1,$theData);
 		fclose($file1);
 
-		echo "count ".count($aazimuth).count($awwr).count($adepth).count($aratio).count($ashgc);
+		//echo "count ".count($aazimuth).count($awwr).count($adepth).count($aratio).count($ashgc);
 
 		$filesave=fopen($working_dir."/parametricvalues.txt",'w');
 		$filecontent="";
-		for($x=0;$x<count($aazimuth);$x++)
+		for($x=0;$x<count($azimuth);$x++)
 		{
-			for($t=0;$t<count($avlt);$t++)
+			for($t=0;$t<count($aspect_ratio);$t++)
 			{
-				for($z=0;$z<count($adepth);$z++)
+				for($z=0;$z<count($overhang);$z++)
 				{
-					for($w=0;$w<count($aratio);$w++)
+					for($w=0;$w<count($glass_types);$w++)
 					{
-						for($v=0;$v<count($ashgc);$v++)
+						for($v=0;$v<count($wall_type);$v++)
 						{
 						
-						for($u=0;$u<count($au_factor);$u++)
+						for($u=0;$u<count($roof_type);$u++)
 						{
 						
-						for($y=0;$y<count($awwr);$y++)
+						for($y=0;$y<count($wall_ratio);$y++)
 						{
 						
-						echo "hi";
+					//	echo "hi";
 							
-							$filecontent=$filecontent.$aazimuth[$x];		
-							$filecontent=$filecontent." ".$awwr[$y];		
-							$filecontent=$filecontent." ".$adepth[$z];		
-							$filecontent=$filecontent." ".$aratio[$w];		
-							$filecontent=$filecontent." ".$ashgc[$v];		
-							$filecontent=$filecontent." ".$au_factor[$u];		
-							$filecontent=$filecontent." ".$avlt[$t];
-							echo $filecontent=$filecontent." \n"	;
+							$filecontent=$filecontent.$azimuth[$x];		
+							$filecontent=$filecontent." ".$wall_ratio[$y];		
+							$filecontent=$filecontent." ".$overhang[$z];		
+							$filecontent=$filecontent." ".$aspect_ratio[$t];		
+							$filecontent=$filecontent." ".$glass_types[$w];		
+							$filecontent=$filecontent." ".$wall_type[$v];		
+							$filecontent=$filecontent." ".$roof_type[$u];
+							$filecontent=$filecontent." \n"	;
 							/*---------------------- store data of template file for every user in a variable--------------------*/
 
 							$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/tutorial_template.idf";
@@ -281,10 +259,10 @@ class IndexController extends AbstractActionController
 							fclose($file1);
 							*/
 
-							$template_file_data = str_replace(array('%azimuth_angle%'),array($aazimuth[$x]),$template_file_data);
+							$template_file_data = str_replace(array('%azimuth_angle%'),array($azimuth[$x]),$template_file_data);
 							$height_of_window=3;//fixing the height of the window to 3; according the given model
 
-							$wwr_height=$awwr[$y]/100*$height_of_window;
+							$wwr_height=$wall_ratio[$y]/100*$height_of_window;
 							$wwr_startz=$height_of_window/2-$wwr_height/2;
 
 							$template_file_data = str_replace(array('%wwr_height%','%wwr_startz%'),array($wwr_height,$wwr_startz),$template_file_data);
@@ -292,17 +270,21 @@ class IndexController extends AbstractActionController
 							$template_file_data = str_replace(array('%wwr_height2%','%wwr_startz2%'),array($wwr_height,$wwr_startz),$template_file_data);
 							$template_file_data = str_replace(array('%wwr_height3%','%wwr_startz3%'),array($wwr_height,$wwr_startz),$template_file_data);
 							$template_file_data = str_replace(array('%wwr_height4%','%wwr_startz4%'),array($wwr_height,$wwr_startz),$template_file_data);
-							$template_file_data = str_replace(array("%depth%"),array($adepth[$z]),$template_file_data);
+							$template_file_data = str_replace(array("%depth%"),array($overhang[$z]),$template_file_data);
 
-							$lbybratio_length_value=sqrt($aratio[$w]*$ptotal_area);
+							$lbybratio_length_value=sqrt($aspect_ratio[$w]*$ptotal_area);
 							$lbybratio_breadth_value=$ptotal_area/$lbybratio_length_value;
 							$template_file_data = str_replace(array("%lbybratio_length%","%lbybratio_breadth%"),array($lbybratio_length_value,$lbybratio_breadth_value),$template_file_data);
 							
 							
-							$template_file_data=str_replace(array("%u_factor%"), array($au_factor[$v]),$template_file_data);
-							$template_file_data=str_replace(array("%shgc%"), array($ashgc[$v]),$template_file_data);
-							$template_file_data=str_replace(array("%vlt%"), array($avlt[$v]),$template_file_data);
-
+							$template_file_data=str_replace(array("%shgc%"), array($glass_types[$v]),$template_file_data);
+							
+							
+							$glass_info = $this->getglasstypesTable()->fetchGlassinfo($glass_types[$v]);
+							
+							$template_file_data=str_replace(array("%vlt%"), array($glass_info->vlt,$template_file_data));
+							$template_file_data=str_replace(array("%u_factor%"), array($glass_info->u_factor,$template_file_data));
+							
 
 
 
@@ -326,7 +308,7 @@ class IndexController extends AbstractActionController
 			}
 		}
 
-		echo $filecontent;
+		//echo $filecontent;
 
 		fwrite($filesave,$filecontent);
 		fclose($filesave);
@@ -346,7 +328,7 @@ class IndexController extends AbstractActionController
 		}
 
 		/*$host="localhost";
-		$port =800;  //port number
+		$port =5436;  //port number
 		$fp = fsockopen($host, $port, $errno, $errstr);
 		if( !$fp)
 		{
@@ -359,8 +341,8 @@ class IndexController extends AbstractActionController
 				echo $result;
 		}
 		else
-		{*/
-			/*$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter." ".$cityname;
+		{
+			$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter." ".$cityname;
 				fputs ($fp, $str);
 				$msg="";
 				$msg=fgets($fp,17);
@@ -371,293 +353,141 @@ class IndexController extends AbstractActionController
 						//header("Location: mydisplay.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities);
 				}
 
-				close($fp);*/
-		//}
+				close($fp);
+		}
+		*/
 			//return new ViewModel();
 			
-			         $sumofvarq=2;
-         if($var_quantities[0]=='1'){
-            $sumofvarq=$sumofvarq+1;
-         }
-         if($var_quantities[1]=='1'){
-            $sumofvarq=$sumofvarq+1;            
-         }
-         if($var_quantities[1]=='2'){
-            $sumofvarq=$sumofvarq+4;            
-         }
-         if($var_quantities[2]=='1'){
-            $sumofvarq=$sumofvarq+1;
-         }
-         if($var_quantities[3]=='1'){
-            $sumofvarq=$sumofvarq+1;
-         }
-         if($var_quantities[4]=='1'){
-            $sumofvarq=$sumofvarq+1;
-         }
+		$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
 
-         $filename = $working_directory."flagfile.txt";
-         
-         if (file_exists($filename)) 
-         {
-         }
-         else{
-         	echo "<script type='text/javascript'>
-         		var bar1= createBar(300,15,'white',1,'black','blue',85,7,3,'');
-         	</script>
-         		";
-         }
+		$azimuth1=array();
+		$energy1=array();
+		$wwr1=array();
+		$ratio1=array();
+		$shgc1=array();
+		$depth1=array();
+		$u_factor1=array();
+		$vlt1=array();
+		$count=0;
+		$file=fopen($working_directory_location_parametric."finalvalues.txt","r");
+		$flag=0;
+		if($file == NULL){
 
-		 
-		  $item1=array();
-         $item2=array();
-         $item3=array();
-         $item4=array();
-         $item5=array();
-         $item6=array();
-	     $itme32=array();
-         $itme33=array();
-         $itme34=array();         
-	     $count=0;
-         $file=fopen($working_directory."parametricvalues.txt","r");
-         $flag=0;
-         if($file == NULL){
-         	echo "null file found";
-         }
-         else{
-         	//parsing the file till the end to get the output generated by genopt
-         	while(!feof($file))
-         	{
-         		$no=0;
-         		$a= fgets($file);
-         		$len=strlen($a);
-         		if($len==0 or $len==1)
-         		{
-         			continue;
-         		}
-         		else
-         		{
-         			if($len > 4 and $a[0]=='S' and $a[1]=='i' and $a[2]=='m' and $a[3]=='u' and $a[4]=='l' and $a[5]=='a')
-         			{
-         				$flag=1;
-         				continue;
-         			}
-         			if($flag==1)
-         			{
-         				$piece = preg_split('/[\s]+/', $a);
-         				$item1[$count]=$piece[4];
-         				$item1[$count]=((float)($item1[$count]))/(3600000);
-         				$take=5;
-         				if($var_quantities[0]=="1")//for azimuth
-         				{
-         					$item2[$count]=$piece[$take];
-         					$take=$take+1;
-         				}
-         				else
-         				{
-         					$item2[$count]=1;
-         				}
-         
-         			if($var_quantities[1]=="1")//for wwr
-                                {
-                                        $item3[$count]=$piece[$take];
-                                        $item3[$count]=$item3[$count]/3*100;//to get back the ratio
-                                        $item32[$count]=1;
-                                        $item33[$count]=1;
-                                        $item34[$count]=1;
-                                        $take=$take+1;
-                                }
-                                else if($var_quantities[1]=="0")
-                                {
-                                        $item3[$count]=1;
-                                        $item32[$count]=1;
-                                        $item33[$count]=1;
-                                        $item34[$count]=1;
-                                }
-                                else
-                                {
-                                        $item3[$count]=$piece[$take];
-                                        $item3[$count]=$item3[$count]/3*100;//converting height to wwr of the window
-                                        $take=$take+1;
+		}
+		else{
+			 while(!feof($file))
+			 {
+				 $no=0;
+				 $a= fgets($file);
+				 $len=strlen($a);
+				 if($len==0 or $len==1)
+				 {
+					break;
+				 }
+				 $piece=explode(" ",$a);
+				 $energy1[$count]=$piece[0];
+				 $azimuth1[$count]=$piece[1];
+				 $wwr1[$count]=$piece[2];
+				 $depth1[$count]=$piece[3];
+				 $ratio1[$count]=$piece[4];
+				 $shgc1[$count]=$piece[5];
+				 $u_factor1[$count]=$piece[6];
+				 $vlt1[$count]=$piece[7];
+				 $count=$count+1;
+			  }
 
-                                        $item32[$count]=$piece[$take];
-                                        $item32[$count]=$item32[$count]/3*100;
-                                        $take=$take+1;
-
-                                        $item33[$count]=$piece[$take];
-                                        $item33[$count]=$item33[$count]/3*100;
-                                        $take=$take+1;
-
-                                        $item34[$count]=$piece[$take];
-                                        $item34[$count]=$item34[$count]/3*100;
-                                        $take=$take+1;
-
-                                }
-         				if($var_quantities[2]=="1")//overhange depth
-         				{
-         					$item4[$count]=$piece[$take];
-         					$take=$take+1;
-         				}
-         				else
-         				{
-         					$item4[$count]=1;
-         				}
-         				if($var_quantities[3]=="1")//aspect ratio
-         				{
-         					$item5[$count]=$piece[$take];
-         					$item5[$count]=($item5[$count]*$item5[$count])/$total_area;//converting length to aspect ratio
-         					$take=$take+1;
-         				}
-         				else
-         				{
-         					$item5[$count]=1;
-         				}
-         				if($var_quantities[4]=="1")
-         				{
-         					$item6[$count]=$piece[$take];
-         					$take=$take+1;
-         				}
-         				else
-         				{
-         					$item6[$count]=1;
-         				}
-         				$count=$count+1;
-         			}          
-         
-         		}
-         	}
-         	fclose($file);
-         }
-         $x1=0;
-         $y1=0;
-         
-         //sorting the output
-         
-         while($x1 < $count)
-         {
-         	$y1=0;
-         	while($y1 < $x1)
-         	{
-         		if($item1[$x1] < $item1[$y1])
-         		{
-         			$temp1=$item1[$x1];
-         			$item1[$x1]=$item1[$y1];
-         			$item1[$y1]=$temp1;
-         
-         
-         			$temp2=$item2[$x1];
-         			$item2[$x1]=$item2[$y1];
-         			$item2[$y1]=$temp2;
-         
-         
-         			$temp3=$item3[$x1];
-         			$item3[$x1]=$item3[$y1];
-         			$item3[$y1]=$temp3;
-
-                    $temp32=$item32[$x1];
-                    $item32[$x1]=$item32[$y1];
-                    $item32[$y1]=$temp32;
-
-                    $temp33=$item33[$x1];
-                    $item33[$x1]=$item33[$y1];
-                    $item33[$y1]=$temp33;
-
-                    $temp34=$item34[$x1];
-                    $item34[$x1]=$item34[$y1];
-                    $item34[$y1]=$temp34;
+			  //sorting the values
+			  $x1=0;
+			  $y1=0;
+			  while($x1 < $count)
+			  {
+				$y1=0;
+				while($y1 < $count)
+				{
+				  if($energy1[$x1] < $energy1[$y1])
+				  {
+					$temp1=$energy1[$x1];
+					$energy1[$x1]=$energy1[$y1];
+					$energy1[$y1]=$temp1;
 
 
-                    $temp4=$item4[$x1];
-                    $item4[$x1]=$item4[$y1];
-                    $item4[$y1]=$temp4;
+					$temp1=$azimuth1[$x1];
+					$azimuth1[$x1]=$azimuth1[$y1];
+					$azimuth1[$y1]=$temp1;
 
-                    $temp5=$item5[$x1];
-         			$item5[$x1]=$item5[$y1];
-         			$item5[$y1]=$temp5;
-         
-         			$temp6=$item6[$x1];
-         			$item6[$x1]=$item6[$y1];
-         			$item6[$y1]=$temp6;
-         
-         		}
-         		$y1=$y1+1;
-         	}
-         	$x1=$x1+1;
-         
-         }
-         
-         
-         $fp1=fopen($working_directory."/results250.js","w");
-         if(!$fp1){
-         	echo "unable to open file";
-         }
-         $str="var foods = [
-         ";
-         
-         $foldsize=($count/10);
-         if($foldsize<=0){
-         	$foldsize=1;
-         }
-         for($i=0;$i<$count;$i++){
-         	$str=$str."{'group':".(int)($i/$foldsize);
-         	if($var_quantities[0]=='1'){
-         		$str=$str.",'Orientation (degrees)':$item2[$i]";
-         	}
-         	 if($var_quantities[1]=='1'){
-                                $str=$str.",'WWR (%)':$item3[$i]";
-                }
+					$temp1=$wwr1[$x1];
+					$wwr1[$x1]=$wwr1[$y1];
+					$wwr1[$y1]=$temp1;
 
-                if($var_quantities[1]=='2'){
-                                $str=$str.",'Front WWR (%)':$item3[$i]";
-                                $str=$str.",'Back WWR (%)':$item32[$i]";
-                                $str=$str.",'Right WWR (%)':$item33[$i]";
-                                $str=$str.",'Left WWR (%)':$item34[$i]";
-                }
+					$temp1=$depth1[$x1];
+					$depth1[$x1]=$depth1[$y1];
+					$depth1[$y1]=$temp1;
 
-         	if($var_quantities[2]=='1'){
-         		$str=$str.",'Overhang Depth (m)':$item4[$i]";
-         	}
-         	if($var_quantities[3]=='1'){
-         		$str=$str.",'Aspect Ratio':$item5[$i]";
-         	}
-         	if($var_quantities[4]=='1'){
-         		$str=$str.",'SHGC':$item6[$i]";
-         	}
-         	$str=$str.",'Energy (kWh)':$item1[$i]";
-         	if($i==$count-1){
-         		$str=$str."}
-         		";
-         	}
-         	else{
-         		$str=$str."},
-         		";
-         	}
-         }
-         $str=$str."];";
-         fwrite($fp1,$str);
-         fclose($fp1);
-		 
-		  //checking whether all updates have been performed or not or do we need to still update the graph page
-         $filename = $working_directory."flagfile.txt";
-         
-         if (file_exists($filename)) 
-         {
-         	echo "redirecting";
-         	//echo("<meta http-equiv=\"refresh\" content=\"4;URL=mydisplay.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities."\">");
-         }
-         
-         else{
-         	//echo "Will update new results shortly".$var_quantities;
-         	//echo("<meta http-equiv=\"refresh\" content=\"10;URL=displaygenopt_ver1.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities."&total_area=".$total_area."\">");
-         }
+					$temp1=$ratio1[$x1];
+					$ratio1[$x1]=$ratio1[$y1];
+					$ratio1[$y1]=$temp1;
+
+					$temp1=$shgc1[$x1];
+					$shgc1[$x1]=$shgc1[$y1];
+					$shgc1[$y1]=$temp1;
+
+					$temp1=$u_factor1[$x1];
+					$u_factor1[$x1]=$u_factor1[$y1];
+					$u_factor1[$y1]=$temp1;
+
+					$temp1=$vlt1[$x1];
+					$vlt1[$x1]=$vlt1[$y1];
+					$vlt1[$y1]=$temp1;
+
+				  }
+				  $y1=$y1+1;
+				}
+				$x1=$x1+1;
+			  }
+		}
+
+		$fp1=fopen($working_directory_location_parametric."results250_3.js","w");
+		if(!$fp1){
+
+			 echo "unable to open file";
+		}
+
+		$str="var data = [
+		";
+
+		$foldsize=($count/10);
+		if($foldsize<=0){
+		$foldsize=1;
+		}
+		for($i=0;$i<$count;$i++){
+			 $str=$str."{'group':".(int)($i/$foldsize);
+			 $str=$str.",'azimuth':$azimuth1[$i]";
+					 $str=$str.",'wwr':$wwr1[$i]";
+					 $str=$str.",'overhang':$depth1[$i]";
+					 $str=$str.",'aspectRatio':$ratio1[$i]";
+					 $str=$str.",'shgc':$shgc1[$i]";
+					 $str=$str.",'energy':$energy1[$i]";
+			 if($i==$count-1){
+			 $str=$str."}
+		";
+			 }
+			 else{
+			 $str=$str."},
+		";
+
+			 }
+		}
+		$str=$str."];";
+		fwrite($fp1,$str);
+		fclose($fp1);
         
-		/* $viewModel = new ViewModel(array(
-				'foo' => 'bar'
-			));
+		 $viewModel = new ViewModel();
 
 			$viewModel->setTerminal(true);
 
-			return $viewModel;*/
+			return $viewModel;
 	 }
+
 
 	 
 	public function addhvac($template_file_data,$hvactype2){
