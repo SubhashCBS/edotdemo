@@ -108,9 +108,9 @@ class IndexController extends AbstractActionController
 	 public function mycommandfilegeneratorAction()
 	 {
 	 error_reporting(0);
-		//echo "<pre>";
-		//print_r($_POST);
-		
+		/*echo "<pre>";
+		print_r($_POST);
+		exit;*/
 		$unique_counter = time();
 		
 		if(is_array($_POST['azimuth']))
@@ -174,17 +174,17 @@ class IndexController extends AbstractActionController
 		
 		$hvactype2=6;
 		$ptotal_area=50;
-		$location2=2;
+		$location=$_POST['location'];
 	
 		$old = umask(0);
-		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
+		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
 		umask($old);
 
 		//exit;
 		/*---------------------- make a copy of ini file for every user--------------------*/
 		$fileno=1;
-		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
-		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
+		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
+		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
 
 		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/optLinux_template.ini";
 		$file1 = fopen($file, "r") or die("can't open template file for reading");
@@ -201,7 +201,12 @@ class IndexController extends AbstractActionController
 		$file1 = fopen($file, "r") or die("can't open template file for reading");
 		$theData = fread($file1, filesize($file));
 		fclose($file1);
-
+		if($location!=""){
+			$cityname=$location;
+		}else{
+			$cityname="Hyderabad.epw";
+		}
+		$theData = str_replace(array('%weatherfile%'),array($cityname),$theData);
 		$file="EnergyPlusLinux.cfg";
 		$file1 = fopen("$working_dir/$file", "w") or die("can't open template for reading");
 		fwrite($file1,$theData);
@@ -316,7 +321,7 @@ class IndexController extends AbstractActionController
 		fwrite($filesave,$filecontent);
 		fclose($filesave);
 
-		$cityname="Hyderabad.epw";
+		/*$cityname="Hyderabad.epw";
 		if($location2==1){
 			$cityname="New_Delhi.epw";
 		}
@@ -328,7 +333,7 @@ class IndexController extends AbstractActionController
 		}
 		else if($location2==4){
 			$cityname="Banglore.epw";
-		}
+		}*/
 
 		$host="localhost";
 		$port =5436;  //port number
@@ -345,7 +350,8 @@ class IndexController extends AbstractActionController
 		}
 		else
 		{
-			$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
+			//$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
+			$str="e"."./working_directory/nonparametric/".$unique_counter;
 				fputs ($fp, $str);
 				$msg="";
 				$msg=fgets($fp,17);
@@ -361,7 +367,7 @@ class IndexController extends AbstractActionController
 		
 			//return new ViewModel();
 			
-		$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
+		$working_directory_location_parametric = "./working_directory/nonparametric/$unique_counter/";
 
 		$azimuth1=array();
 		$energy1=array();
