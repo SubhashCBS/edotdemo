@@ -177,7 +177,7 @@ class IndexController extends AbstractActionController
 		$location=$_POST['location'];
 	
 		$old = umask(0);
-		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/$unique_counter", 0777  ) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
+		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/$unique_counter", 0777) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
 		umask($old);
 
 		//exit;
@@ -206,7 +206,7 @@ class IndexController extends AbstractActionController
 		}else{
 			$cityname="Hyderabad.epw";
 		}
-		$theData = str_replace(array('%weatherfile%'),array($cityname),$theData);
+	//	$theData = str_replace(array('%weatherfile%'),array($cityname),$theData);
 		$file="EnergyPlusLinux.cfg";
 		$file1 = fopen("$working_dir/$file", "w") or die("can't open template for reading");
 		fwrite($file1,$theData);
@@ -335,6 +335,7 @@ class IndexController extends AbstractActionController
 			$cityname="Banglore.epw";
 		}*/
 
+		sleep(20);
 		$host="localhost";
 		$port =5436;  //port number
 		$fp = fsockopen($host, $port, $errno, $errstr);
@@ -342,7 +343,7 @@ class IndexController extends AbstractActionController
 		{
 				die ("couldnot connect to server");
 		}
-		socket_set_timeout($fp, 300);
+		socket_set_timeout($fp, 500);
 		if (!$fp)
 		{
 				$result = "Error: could not open socket connection";
@@ -351,8 +352,10 @@ class IndexController extends AbstractActionController
 		else
 		{
 			//$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
-			$str="e"."./working_directory/nonparametric/".$unique_counter;
+			 $str="p"."./working_directory/nonparametric/".$unique_counter." ".$cityname." ".$fileno;
 				fputs ($fp, $str);
+				stream_set_blocking($fp,TRUE);
+				stream_set_timeout(600);
 				$msg="";
 				$msg=fgets($fp,17);
 				sleep(5);
