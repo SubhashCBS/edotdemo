@@ -732,7 +732,9 @@ class IndexController extends AbstractActionController
 					fclose($fp1);
 					
 							
-				 $viewModel = new ViewModel();
+				 $viewModel = new ViewModel(array(
+             'working_dir' => $working_dir,
+         ));
 
 					$viewModel->setTerminal(true);
 
