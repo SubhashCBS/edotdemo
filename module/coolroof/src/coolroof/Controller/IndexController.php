@@ -357,7 +357,7 @@ class IndexController extends AbstractActionController
 				stream_set_blocking($fp,TRUE);
 				stream_set_timeout(600);
 				$msg="";
-				sleep(400);
+				sleep(100);
 				$msg=fgets($fp,17);
 				sleep(5);
 				echo "message from server.c is $msg <br>";
