@@ -733,7 +733,7 @@ class IndexController extends AbstractActionController
 					
 							
 				 $viewModel = new ViewModel(array(
-             'working_dir' => $working_dir,
+             'unique_counter' => $unique_counter,
          ));
 
 					$viewModel->setTerminal(true);
