@@ -187,18 +187,18 @@ class IndexController extends AbstractActionController
 		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
 
 		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/optLinux_template.ini";
-		$file1 = fopen($file, "r") or die("can't open template file for reading");
+		$file1 = fopen($file, "r") or die("can't open optLinux_template.ini template file for reading");
 		$theData = fread($file1, filesize($file));
 		fclose($file1);
 		$file="optLinux.ini";
-		$file1 = fopen("$working_dir/$file", "w") or die("can't open template for reading");
+		$file1 = fopen("$working_dir/$file", "w") or die("can't Create optLinux.ini");
 		fwrite($file1,$theData);
 		fclose($file1);
 
 		/*---------------------- make a copy of cfg file for every user--------------------*/
 
 		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/EnergyPlusLinux.cfg";
-		$file1 = fopen($file, "r") or die("can't open template file for reading");
+		$file1 = fopen($file, "r") or die("can't open EnergyPlusLinux.cfg file for reading");
 		$theData = fread($file1, filesize($file));
 		fclose($file1);
 		if($location!=""){
@@ -208,7 +208,7 @@ class IndexController extends AbstractActionController
 		}
 	//	$theData = str_replace(array('%weatherfile%'),array($cityname),$theData);
 		$file="EnergyPlusLinux.cfg";
-		$file1 = fopen("$working_dir/$file", "w") or die("can't open template for reading");
+		$file1 = fopen("$working_dir/$file", "w") or die("can't create EnergyPlusLinux.cfg");
 		fwrite($file1,$theData);
 		fclose($file1);
 
@@ -246,7 +246,7 @@ class IndexController extends AbstractActionController
 							/*---------------------- store data of template file for every user in a variable--------------------*/
 
 							$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/tutorial_template.idf";
-							$file1 = fopen($file, "r") or die("can't open template file for reading");
+							$file1 = fopen($file, "r") or die("can't open tutorial_template.idf file for reading");
 							$template_file_data = fread($file1, filesize($file));//stores the data of template file in a variable
 							fclose($file1);
 
