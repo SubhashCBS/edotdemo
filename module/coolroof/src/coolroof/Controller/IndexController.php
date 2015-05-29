@@ -753,7 +753,7 @@ class IndexController extends AbstractActionController
 					$viewModel->setTerminal(true);
 
 		
-			//return new ViewModel();
+			return new ViewModel();
 			
 	 }
 
