@@ -744,8 +744,8 @@ class IndexController extends AbstractActionController
 						//header("Location: mydisplay.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities);
 				}
 
-				close($fp);
-		}*/
+				close($fp);*/
+		}
 		
 					
 				 $viewModel = new ViewModel();
