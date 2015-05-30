@@ -46,6 +46,12 @@
 		</div>
 	</div>
 
+				<div id="energyTd" rowspan="2">
+					<div style="display:inline-block">Max Energy (kWh)</div>
+					<div style="display:inline-block;float:right">Min Energy</div>
+					<input id="slider-vertical" style="height:100%;left:20px"/>
+					
+				</div`>
 
 </div>
 
@@ -59,6 +65,7 @@
    <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/side-menu.css">
    <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/1.11.5.css">
    <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/d.css">
+<script src="<?php echo $this->basePath(); ?>/assets/global/plugins/ion.rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 
 <style type="text/css">
   #slider-vertical {
@@ -73,7 +80,7 @@
   }
 
   canvas{
-    height: 200px;
+    height: 600px;
   }
 
   body{
@@ -3231,6 +3238,8 @@ var data = [
 {'group':9,'azimuth':180,'wwr':80,'overhang':0.3,'aspectRatio':0.6,'shgc':0.85,'energy':21163.888830}
 ]
 
+graph_data = data;
+
   minValArray = [];
   maxValArray = [];
   azimuthVals = [];
@@ -3326,7 +3335,7 @@ var data = [
 
   $("canvas").width($("#tab_1_1").width());
   $("#cvs4").width($("#tab_1_1").width()/2);
-	$("#slider-vertical").css("height", $("#tab_1_3").height()-100);
+	$("#slider-vertical").css("height", $("#energyTd").height()-100);
 
   $( "#slider-azimuth" ).slider({
     orientation: "horizontal",
@@ -3428,23 +3437,32 @@ var data = [
     console.log(data.length/2);
     console.log("energyIndex " + energyIndex);
 
-    $( "#slider-vertical" ).slider({
-      orientation: "vertical",
-      range: false,
-      min: 0,
-      max: data.length-1,
-      value: initval,
-      slide: function( event, ui ) {
-        energyIndex = ui.value;
-        drawCube4("cvs4", data[energyIndex]);
-        drawCube3("cvs3", data[energyIndex]);
-        drawCube2("cvs2", data[energyIndex]);
-        drawCube1("cvs1", data[energyIndex]);
-        updateshgc(data[energyIndex].shgc);
-        console.log(data[energyIndex]);
-        $($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
-      }
-    });
+	
+			  $("#slider-vertical").ionRangeSlider({
+				  min: 0,
+				  max: data.length-1,
+				  value: initval,
+                from: 1,
+                to: 100,
+                step: 1,
+                prettify: false,
+                hasGrid: true,
+				 orientation: "vertical",
+				onChange: function (value) {
+				
+					 energyIndex = value.fromNumber;
+						drawCube4("cvs4", data[energyIndex]);
+						drawCube3("cvs3", data[energyIndex]);
+						drawCube2("cvs2", data[energyIndex]);
+						drawCube1("cvs1", data[energyIndex]);
+						updateshgc(data[energyIndex].shgc);
+						console.log(data[energyIndex]);
+						$($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
+				  
+				
+				}
+            });				
+	
     $($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
     updateshgc(data[energyIndex].shgc);
 
