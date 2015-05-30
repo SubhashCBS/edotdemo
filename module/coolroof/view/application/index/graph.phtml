@@ -6,21 +6,21 @@
 
 
 	<ul class="nav nav-tabs" style="margin-bottom:0px" data-ng-init="ufactors=['1.5','3.72','1.5','5.7','3.3']">
-		<li class="active">
+		<li class="active gtab" id="1">
 			<a href="#tab_1_1" data-toggle="tab">
 			3D View </a>
 		</li>
-		<li>
+		<li class="gtab" id="2">
 			<a href="#tab_1_2" data-toggle="tab">
 			Plan </a>
 		</li>
-		<li >
+		<li class="gtab" id="3">
 			<a href="#tab_1_3" data-toggle="tab">
 			Elevation
 			</a>
 		</li>
 		
-		<li>
+		<li class="gtab" id="4">
 			<a href="#tab_1_4" data-toggle="tab">
 			Glass Properties
 			</a>
@@ -3449,12 +3449,29 @@ graph_data = data;
                 hasGrid: true,
 				 orientation: "vertical",
 				onChange: function (value) {
-				
+					var can_no = $(".active").attr("id");
 					 energyIndex = value.fromNumber;
-						drawCube4("cvs4", data[energyIndex]);
-						drawCube3("cvs3", data[energyIndex]);
-						drawCube2("cvs2", data[energyIndex]);
-						drawCube1("cvs1", data[energyIndex]);
+					 
+						if(can_no == 4)
+						{
+							drawCube4("cvs4", data[energyIndex]);
+						}
+						
+						if(can_no == 3)
+						{
+							drawCube3("cvs3", data[energyIndex]);
+						}
+						
+						if(can_no == 2)
+						{
+							drawCube2("cvs2", data[energyIndex]);
+						}
+						
+						if(can_no == 1)
+						{
+							drawCube1("cvs1", data[energyIndex]);
+						}
+						
 						updateshgc(data[energyIndex].shgc);
 						console.log(data[energyIndex]);
 						$($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
@@ -3479,6 +3496,13 @@ graph_data = data;
       drawCube4("cvs4", data[energyIndex]);
     });
 
+	$( ".gtab, .gtab a" ).click(function() {
+	
+  	 
+    });
+
+	
+	
     drawCube4("cvs4", data[energyIndex]);
     drawCube3("cvs3", data[energyIndex]);
   	drawCube2("cvs2", data[energyIndex]);
