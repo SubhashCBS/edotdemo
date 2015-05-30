@@ -26,32 +26,23 @@
 			</a>
 		</li>
 	</ul>
-	<div class="tab-content"   style="border:1px solid #ddd;border-top:none;height:985px">
+	<div class="tab-content"   >
 		<div class="ctab-pane fade active in" id="tab_1_1">
-					
-				<div style="padding:20px;width:90%;margin:auto;height:90%">	
 					<canvas id="cvs3"></canvas><br>
 					<input id="zoomcvs3" type="range" name="points" min="10" max="100" value="30">
-				</div>
 		</div>
 		<div class="ctab-pane fade" id="tab_1_2">
-		        <div style="padding:20px;width:90%;margin:auto;height:90%">	
 					<canvas id="cvs1"></canvas><br>			
 					<input id="zoomcvs1" type="range" name="points" min="10" max="100" value="70">
-				</div>
 		</div>
 		<div class="ctab-pane fade" id="tab_1_3">
-		        <div style="padding:20px;width:90%;margin:auto;height:90%">	
 					<canvas id="cvs2"></canvas><br>								
 					<input id="zoomcvs2" type="range" name="points" min="10" max="100" value="70">			
-				</div>
 		</div>
 		<div class="ctab-pane fade" id="tab_1_4">
-				<div style="padding:20px;width:90%;margin:auto;height:90%">	
   					<canvas id="cvs4" style="float:left"></canvas>								
                      
 					<input id="zoomcvs4" type="range" name="points" min="10" max="100" value="50" hidden>
-				</div>
 		</div>
 	</div>
 
@@ -62,12 +53,12 @@
     <script type="text/javascript" src="<?php echo $this->basePath(); ?>/assets/admin/graph/jquery.js"></script>
 	 <script type="text/javascript" src="<?php echo $this->basePath(); ?>/assets/admin/graph/jquery-ui.js"></script>
    
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/jquery-ui.css">
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/pure-min.css">
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/side-menu-old-ie.css">
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/side-menu.css">
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/1.11.5.css">
-   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/graph/css/d.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/jquery-ui.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/pure-min.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/side-menu-old-ie.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/side-menu.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/1.11.5.css">
+   <link rel="stylesheet" href="<?php echo $this->basePath(); ?>/assets/admin/css/d.css">
 
 <style type="text/css">
   #slider-vertical {
@@ -82,10 +73,30 @@
   }
 
   canvas{
-    height: 250px;
+    height: 200px;
   }
 
-  
+  body{
+  }
+  .sliderDiv {
+    width: 80%;
+    left: 10%;
+    margin: 2%;
+  }
+  h3{
+    margin: 0px;
+  }
+
+  .slider-label-left{
+    position: relative;
+    top: 20px;
+  }
+
+  .slider-label-right{
+    float: right;
+    position: relative;
+  }
+
 </style>
 
 
@@ -3313,9 +3324,9 @@ var data = [
   locateMin(storeData);
   findDistinct(storeData);
 
-  $("canvas").width($("#firstTd").width());
-  $("#cvs4").width($("#firstTd").width()/2);
-	$("#slider-vertical").css("height", $("#energyTd").height()-100);
+  $("canvas").width($("#tab_1_1").width());
+  $("#cvs4").width($("#tab_1_1").width()/2);
+	$("#slider-vertical").css("height", $("#tab_1_3").height()-100);
 
   $( "#slider-azimuth" ).slider({
     orientation: "horizontal",
