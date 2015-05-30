@@ -40,9 +40,10 @@
 					<input id="zoomcvs2" type="range" name="points" min="10" max="100" value="70">			
 		</div>
 		<div class="ctab-pane fade" id="tab_1_4">
-  					<canvas id="cvs4" style="float:left"></canvas>								
+  					<canvas id="cvs4" ></canvas>								
                      
 					<input id="zoomcvs4" type="range" name="points" min="10" max="100" value="50" hidden>
+					<div style="clear:both"></div>
 		</div>
 	</div>
 
@@ -66,7 +67,7 @@
 <script src="<?php echo $this->basePath(); ?>/assets/global/plugins/ion.rangeslider/js/ion-rangeSlider/ion.rangeSlider.min.js"></script>
 
 <style type="text/css">
-  #energyTd .irs-line, .irs-line-mid, #energyTd .irs-line-left, #energyTd .irs-line-right, #energyTd .irs-diapason, #energyTd .irs-slider {
+  #energyTd .irs-line,#energyTd .irs-line-mid, #energyTd .irs-line-left, #energyTd .irs-line-right, #energyTd .irs-diapason, #energyTd .irs-slider {
     background: -webkit-linear-gradient(left, red, green) !important; /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(right, red, green) !important; /* For Opera 11.1 to 12.0 */
     background: -moz-linear-gradient(right, red, green) !important; /* For Firefox 3.6 to 15 */
@@ -3333,7 +3334,7 @@ graph_data = data;
   findDistinct(storeData);
 
   $("canvas").width($("#tab_1_1").width());
-  $("#cvs4").width($("#tab_1_1").width()/2);
+ // $("#cvs4").width($("#tab_1_1").width()/2);
 	$("#slider-vertical").css("height", $("#energyTd").height()-100);
 
   $( "#slider-azimuth" ).slider({
