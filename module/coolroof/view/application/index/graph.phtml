@@ -3503,10 +3503,13 @@ graph_data = data;
 
 	
 	
-    drawCube4("cvs4", data[energyIndex]);
-    drawCube3("cvs3", data[energyIndex]);
-  	drawCube2("cvs2", data[energyIndex]);
+
   	drawCube1("cvs1", data[energyIndex]);
+drawCube2("cvs2", data[energyIndex]);	
+drawCube3("cvs3", data[energyIndex]);
+    drawCube4("cvs4", data[energyIndex]);
+    
+  	
     $("#initInputInfo").html(
       "Azimuth : " + data[energyIndex].azimuth + " degrees" + "<br>" +
       "WWR : " + data[energyIndex].wwr + " %" + "<br>" +
