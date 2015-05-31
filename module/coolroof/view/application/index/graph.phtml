@@ -3452,25 +3452,10 @@ graph_data = data;
 					var can_no = $(".active").attr("id");
 					 energyIndex = value.fromNumber;
 					 
-						if(can_no == 4)
-						{
-							drawCube4("cvs4", data[energyIndex]);
-						}
-						
-						if(can_no == 3)
-						{
-							drawCube3("cvs3", data[energyIndex]);
-						}
-						
-						if(can_no == 2)
-						{
-							drawCube2("cvs2", data[energyIndex]);
-						}
-						
-						if(can_no == 1)
-						{
-							drawCube1("cvs1", data[energyIndex]);
-						}
+ drawCube4("cvs4", data[energyIndex]);
+    drawCube3("cvs3", data[energyIndex]);
+  	drawCube2("cvs2", data[energyIndex]);
+  	drawCube1("cvs1", data[energyIndex]);
 						
 						updateshgc(data[energyIndex].shgc);
 						console.log(data[energyIndex]);
@@ -3496,20 +3481,38 @@ graph_data = data;
       drawCube4("cvs4", data[energyIndex]);
     });
 
-	$( ".gtab, .gtab a" ).click(function() {
+	$( ".gtab" ).click(function() {
+
 	
-  	 
+  	  var energyIndex = $("#slider-vertical").val();
+	  
+	  var can_no = $(this).attr("id");
+	  
+	  
+
+	  setTimeout(function(){ 
+			drawCube4("cvs4", data[energyIndex]);
+			drawCube3("cvs3", data[energyIndex]);
+			drawCube2("cvs2", data[energyIndex]);
+			drawCube1("cvs1", data[energyIndex]); 
+				updateshgc(data[energyIndex].shgc);
+						console.log(data[energyIndex]);
+						$($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
+
+	}, 1000);
+	
+						
+					
+	  
+	  
     });
 
 	
 	
-
-  	drawCube1("cvs1", data[energyIndex]);
-drawCube2("cvs2", data[energyIndex]);	
-drawCube3("cvs3", data[energyIndex]);
     drawCube4("cvs4", data[energyIndex]);
-    
-  	
+    drawCube3("cvs3", data[energyIndex]);
+  	drawCube2("cvs2", data[energyIndex]);
+  	drawCube1("cvs1", data[energyIndex]);
     $("#initInputInfo").html(
       "Azimuth : " + data[energyIndex].azimuth + " degrees" + "<br>" +
       "WWR : " + data[energyIndex].wwr + " %" + "<br>" +
