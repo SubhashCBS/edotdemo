@@ -354,7 +354,7 @@ class IndexController extends AbstractActionController
 		else
 		{
 			//$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
-			$str="p"."./working_directory/nonparametric/".$unique_counter." ".$cityname." ".$fileno;
+			$str="p"."./working_directory/parametric/".$unique_counter." ".$cityname." ".$fileno;
 				fputs ($fp, $str);
 				stream_set_blocking($fp,TRUE);
 				stream_set_timeout(600);
