@@ -177,14 +177,16 @@ class IndexController extends AbstractActionController
 		$location=$_POST['location'];
 	
 		$old = umask(0);
-		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/$unique_counter", 0777) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
+		mkdir($_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/$unique_counter", 0777) or print "<br>Can not create working directory";//a working directory is made for every user where data related to him would be stored
 		umask($old);
 
 		//exit;
 		/*---------------------- make a copy of ini file for every user--------------------*/
 		$fileno=1;
-		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
-		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
+		//$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
+		//$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/nonparametric/".$unique_counter;
+		$working_dir=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
+		$working_directory=$_SERVER['DOCUMENT_ROOT']."/edotdemo/working_directory/parametric/".$unique_counter;
 
 		$file=$_SERVER['DOCUMENT_ROOT']."/edotdemo/optLinux_template.ini";
 		$file1 = fopen($file, "r") or die("can't open optLinux_template.ini template file for reading");
@@ -364,7 +366,7 @@ class IndexController extends AbstractActionController
 				if($msg!="")
 				{
 				
-					$working_directory_location_parametric = "./working_directory/nonparametric/$unique_counter/";
+					$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
 
 					$azimuth1=array();
 					$energy1=array();
@@ -486,7 +488,7 @@ class IndexController extends AbstractActionController
 					$str=$str."];";
 					fwrite($fp1,$str);
 					fclose($fp1);
-					$working_directory_location_parametric = "./working_directory/nonparametric/$unique_counter/";
+					$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
 
 					$azimuth1=array();
 					$energy1=array();
@@ -608,7 +610,7 @@ class IndexController extends AbstractActionController
 					$str=$str."];";
 					fwrite($fp1,$str);
 					fclose($fp1);
-					$working_directory_location_parametric = "./working_directory/nonparametric/$unique_counter/";
+					$working_directory_location_parametric = "./working_directory/parametric/$unique_counter/";
 
 					$azimuth1=array();
 					$energy1=array();
