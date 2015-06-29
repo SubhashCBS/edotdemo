@@ -335,24 +335,24 @@ class IndexController extends AbstractActionController
 			$cityname="Banglore.epw";
 		}*/
 
-		sleep(20);
+		//sleep(20);
 		$host="localhost";
 		$port =5436;  //port number
 		$fp = fsockopen($host, $port, $errno, $errstr);
 		if( !$fp)
 		{
-				die ("couldnot connect to server");
+			die("couldnot connect to server");
 		}
 		socket_set_timeout($fp, 500);
 		if (!$fp)
 		{
-				$result = "Error: could not open socket connection";
-				echo $result;
+			$result = "Error: could not open socket connection";
+			echo $result;
 		}
 		else
 		{
 			//$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
-			 /*$str="p"."./working_directory/nonparametric/".$unique_counter." ".$cityname." ".$fileno;
+			$str="p"."./working_directory/nonparametric/".$unique_counter." ".$cityname." ".$fileno;
 				fputs ($fp, $str);
 				stream_set_blocking($fp,TRUE);
 				stream_set_timeout(600);
@@ -744,9 +744,9 @@ class IndexController extends AbstractActionController
 						//header("Location: mydisplay.php?unique_counter=".$unique_counter."&var_quantities=".$var_quantities);
 				}
 
-				close($fp);*/
+				close($fp);
 		}
-		
+
 					
 				 $viewModel = new ViewModel();
 
