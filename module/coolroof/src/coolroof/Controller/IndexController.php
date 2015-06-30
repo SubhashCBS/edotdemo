@@ -298,7 +298,7 @@ class IndexController extends AbstractActionController
 							}
 
 
-							$file=$fileno.".idf";
+							echo $file=$fileno.".idf";
 							$file1 = fopen("$working_dir/$file", "w") or die("can't open abcde  model template for writing");
 							
 							//echo $template_file_data;
