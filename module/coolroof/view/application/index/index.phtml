@@ -6,8 +6,8 @@
 .control-label{clear:both;display:block}
 </style>
 <?php //print_r($user_glass_types); ?>
-<img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
-<div STYLE="width:400px;float:right">
+<img STYLE="width:400px;float:right;display:none" src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
+<div STYLE="width:400px;float:right;display:none">
 <?php if($user = $this->identity()) { ?> 
     <a href="<?php echo $this->url('user-index');?>" class="btn btn-success">
       <?php echo $this->translate('User Home'); ?>
@@ -32,10 +32,10 @@
 <?php } ?>
 </div>
 
-	<form method="post" name="simulation-from" id="simulation-from" onsubmit="">
+	<form method="post" name="simulation-from" id="simulation-from" onsubmit="" >
 
 		
-		<div class="portlet-body form" style="clear:both">
+		<div class="portlet-body form" tyle="display:none">
 			<input type="hidden" id="cmin" />
 			<input type="hidden" id="cmax" />
 			<div class="form-group" style="float:left">
@@ -105,14 +105,14 @@
 				
 			
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Plot Length&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
+					<label class="control-label">Building Length&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
 					<div style="display:inline-block">
 						<input type="text" class="input-small" name="plot-lenght">
 					</div>
 				</div>
 				
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Plot Width&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
+					<label class="control-label">Building Width&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
 					<div style="display:inline-block">
 						<input type="text" class="input-small" name="plot-width">
 					</div>
@@ -141,9 +141,7 @@
 			
 			
 			
-			<div style="clear:both"></div>
-			
-			<div class="form-group">
+			<div lass="form-group">
 				<div style="display:inline-block;margin-left:10px">
 					<label class="control-label">Day Light Controls</label><div style="clear:both"></div>
 					<div class="actions" style="display:inline-block">
@@ -174,7 +172,7 @@
 
 			<div style="clear:both"></div>
 			
-			<div class="row" style="margin-top:50px">
+			<div class="row">
 			
 				<div class="col-md-6">
 					<div class="portlet box blue-steel">
@@ -191,7 +189,7 @@
 								<div id="range_1_box">
 									<input type="text" value="" id="range_1-min" class="min" />
 									<input type="text" value="" id="range_1-max" class="max" />
-									<br/><br/>
+									<br/>
 									<input id="range_1" class="azimuth" type="text" value=""/>
 								</div>
 								<div id="range_1_text" style="display:none">
@@ -205,7 +203,7 @@
 								<div id="range_2_box">
 									<input type="text" value="" id="range_2-min" class="min" />
 									<input type="text" value="" id="range_2-max" class="max" />
-									<br/><br/>
+									<br/>
 									<input id="range_2" type="text" class="aspect-ratio" value=""/>
 								</div>
 								<div id="range_2_text" style="display:none">
@@ -219,7 +217,7 @@
 								<div id="range_4_box">
 									<input type="text" value="" id="range_4-min" class="min" />
 									<input type="text" value="" id="range_4-max" class="max" />
-									<br/><br/>
+									<br/>
 									<input id="range_4" type="text" class="over-hang" value=""/>
 								</div>
 								<div id="range_4_text" style="display:none">
@@ -232,18 +230,17 @@
 							<div class="form-group">
 								<label class="control-label"><strong>Window to Wall Ratio</strong>  </label><div style="clear:both"></div>
 										<div class="radio-list">
-											<label>
-											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions</label><div style="clear:both"></div>
-											<label>
-											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions </label><div style="clear:both"></div>
+											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions
+											
+											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions
 										</div>
 								<div id="swwr">
 									<span style="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-									<br/><br/>
+									<br/>
 									<div id="range_3_box">
 										<input type="text" value="" id="range_3-min" class="min" />
 										<input type="text" value="" id="range_3-max" class="max" />
-										<br/><br/>
+										<br/>
 										<input id="range_3" type="text" name="wwr[]" value=""/>
 									</div>
 									<div id="range_3_text" style="display:none">
@@ -256,7 +253,7 @@
 									<div id="range_3_1_box">
 										<input type="text" value="" id="range_3_1-min" class="min" />
 										<input type="text" value="" id="range_3_1-max" class="max" />
-										<br/><br/>
+										
 											<input id="range_3_1" type="text" name="wwr[]" value=""/>
 									</div>
 									<div id="range_3_1_text" style="display:none">
@@ -268,7 +265,7 @@
 									<div id="range_3_2_box">
 											<input type="text" value="" id="range_3_2-min" class="min" />
 										<input type="text" value="" id="range_3_2-max" class="max" />
-										<br/><br/>
+										
 											<input id="range_3_2" type="text" name="wwr[]" value=""/>
 									</div>
 									<div id="range_3_2_text" style="display:none">
@@ -280,7 +277,7 @@
 									<div id="range_3_3_box">
 											<input type="text" value="" id="range_3_3-min" class="min" />
 										<input type="text" value="" id="range_3_3-max" class="max" />
-										<br/><br/>
+										
 											<input id="range_3_3" type="text" name="wwr[]" value=""/>
 									</div>
 									<div id="range_3_3_text" style="display:none">
@@ -292,7 +289,7 @@
 									<div id="range_3_4_box">
 										<input type="text" value="" id="range_3_4-min" class="min" />
 										<input type="text" value="" id="range_3_4-max" class="max" />
-										<br/><br/>
+										
 										<input id="range_3_4" type="text" name="wwr[]" value=""/>
 									</div>	
 									<div id="range_3_4_text" style="display:none">
@@ -309,7 +306,7 @@
 									//mysql_select_db("need4all_com");
 									//$result = mysql_query("SELECT * FROM `user_glass_types` WHERE `user_id` = 1");
 								?>
-								<br/><br/>User Glass Types:- 
+								User Glass Types:- 
 								<div style="clear:both;height:10px"></div>			
 								
 								<div class="col-xs-5">
@@ -505,7 +502,7 @@
 							<div id="range_5_box">
 								<input type="text" value="" id="range_5-min" class="min" />
 								<input type="text" value="" id="range_5-max" class="max" />
-								<br/><br/>
+								
 								<input id="range_5" type="text" name="range_4" value=""/>
 							</div>
 							<div id="range_5_text" style="display:none">
@@ -546,7 +543,7 @@
 								</a>
 							</li>
 						</ul>
-						<div class="tab-content"   style="border:1px solid #ddd;border-top:none;height:985px">
+						<div class="tab-content"   style="border:1px solid #ddd;border-top:none;">
 							<div class="tab-pane fade active in" id="tab_1_1">
 				
 							</div>
@@ -606,7 +603,7 @@ $(window).scrollTop( 250 );
 	  
 	  	$.ajax({
 			   type: "POST",
-			   url: "/edotdemo/public/coolroof/index/mycommandfilegenerator",
+			   url: "/demo/public/coolroof/index/mycommandfilegenerator",
 			   data:data,
 			   beforeSend: function(){
 				   $("#portlet-body").html("<img src='<?php echo $this->basePath(); ?>/assets/admin/layout/img/loading.gif' />");
