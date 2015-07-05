@@ -1,9 +1,9 @@
 <style type="text/css">
 .irs-min, .irs-max{display:none !important}
 .min, .max{width:50px}
-.min{float:left}
-.max{float:right}
 .control-label{clear:both;display:block}
+.form-group{margin-bottom:0px}
+.fpop{background:#4B77BE;padding:8px;margin-left:10px;color:white}
 </style>
 <?php //print_r($user_glass_types); ?>
 <img STYLE="width:400px;float:right;display:none" src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
@@ -32,15 +32,15 @@
 <?php } ?>
 </div>
 
-	<form method="post" name="simulation-from" id="simulation-from" onsubmit="" >
+	<form method="post" name="simulation-from" id="simulation-from" onsubmit="" style="width:98%">
 
 		
-		<div class="portlet-body form" tyle="display:none">
+		<div class="portlet-body form" style="margin-top:10px;margin-bottom:10px;">
 			<input type="hidden" id="cmin" />
 			<input type="hidden" id="cmax" />
 			<div class="form-group" style="float:left">
 				<div style="display:inline-block;margin-left:10px">	
-					<label class="control-label">Location</label><div style="clear:both"></div>
+					<label class="control-label">Location</label>
 					<select style="display:inline-block" name="location" class="input-small">
 						<option value="">Ahmedabad</option>
 						<option value="">Akola</option>
@@ -105,28 +105,28 @@
 				
 			
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Building Length&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
+					<label class="control-label">Building Length&nbsp;<small>(meters)</small></label>
 					<div style="display:inline-block">
 						<input type="text" class="input-small" name="plot-lenght">
 					</div>
 				</div>
 				
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Building Width&nbsp;<small>(meters)</small></label><div style="clear:both"></div>
+					<label class="control-label">Building Width&nbsp;<small>(meters)</small></label>
 					<div style="display:inline-block">
 						<input type="text" class="input-small" name="plot-width">
 					</div>
 				</div>
 				
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Building Area&nbsp;<small>(Square meter)</small></label><div style="clear:both"></div>
+					<label class="control-label">Building Area&nbsp;<small>(Square meter)</small></label>
 					<div style="display:inline-block">
 						<input type="text" class="input-small" name="building-area">
 					</div>
 				</div>
 				
 				<div style="display:inline-block;margin-left:10px">	
-				<label class="control-label">AC Type</label><div style="clear:both"></div>
+				<label class="control-label">AC Type</label>
 					<select style="display:inline-block" class=" input-small" name="ac-type">
 						<option value="0">Window/Split air conditioner,  Heating source: Electric Heat Pump</option>
 						<option value="1">Central VAV system with air cooled chiller, Heating Source : Electric Resistance</option>
@@ -143,14 +143,14 @@
 			
 			<div lass="form-group">
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Day Light Controls</label><div style="clear:both"></div>
+					<label class="control-label">Day Light Controls</label>
 					<div class="actions" style="display:inline-block">
 								<input type="checkbox" name="day-light" class="make-switch" checked data-size="small" data-on="success" data-off="warning">
 					</div>
 				</div>
 				
 				<div style="display:inline-block;margin-left:10px">
-					<label class="control-label">Internal Shading Controls</label><div style="clear:both"></div>
+					<label class="control-label">Internal Shading Controls</label>
 					<div class="actions" style="display:inline-block">
 						<select style="display:inline-block" name="internal-shading-controls" class=" input-small">
 						<option>No shading controls</option>
@@ -162,7 +162,7 @@
 				
 				<div style="display:inline-block;margin-left:10px">
 					<div class="checkbox">
-						<label><input type="checkbox" name="cool-roof" id="croof"> Cool Roof </label><div style="clear:both"></div>
+						<label><input type="checkbox" name="cool-roof" id="croof"> Cool Roof </label>
 					</div>
 				</div>
 			</div>
@@ -170,7 +170,7 @@
 		
 		</div>
 
-			<div style="clear:both"></div>
+			
 			
 			<div class="row">
 			
@@ -185,13 +185,13 @@
 				
 						<div class="portlet-body">
 							<div class="form-group">
-								<label class="control-label"><strong>Azimuth</strong> <span style="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-								<div id="range_1_box">
+								<label class="control-label"><strong>Azimuth</strong> <span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+								<span id="range_1_box">
 									<input type="text" value="" id="range_1-min" class="min" />
 									<input type="text" value="" id="range_1-max" class="max" />
-									<br/>
 									<input id="range_1" class="azimuth" type="text" value=""/>
-								</div>
+								</span>
+								</label>
 								<div id="range_1_text" style="display:none">
 									<input type="text" class="azimuth"  value=""/>
 								</div>
@@ -199,157 +199,150 @@
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label"><strong>Aspect Ratio</strong>  <span style="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-								<div id="range_2_box">
+								<label class="control-label"><strong>Aspect Ratio</strong>  <span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+								<span id="range_2_box">
 									<input type="text" value="" id="range_2-min" class="min" />
 									<input type="text" value="" id="range_2-max" class="max" />
 									<br/>
 									<input id="range_2" type="text" class="aspect-ratio" value=""/>
-								</div>
-								<div id="range_2_text" style="display:none">
+								</span>
+								<span id="range_2_text" style="display:none">
 									<input type="text" class="aspect-ratio" value=""/>
-								</div>
+								</span>
+								</label>
 								<input type="hidden" id="aspect-ratio" name="aspect-ratio" value=""/>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label"><strong>Overhang</strong>  <span style="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-								<div id="range_4_box">
+								<label class="control-label"><strong>Overhang</strong>  <span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+								<span id="range_4_box">
 									<input type="text" value="" id="range_4-min" class="min" />
 									<input type="text" value="" id="range_4-max" class="max" />
 									<br/>
 									<input id="range_4" type="text" class="over-hang" value=""/>
-								</div>
-								<div id="range_4_text" style="display:none">
+								</span>
+								<span id="range_4_text" style="display:none">
 									<input type="text" class="over-hang" value=""/>
-								</div>
+								</span>
+								</label>
 								<input type="hidden" id="over-hang" name="over-hang" value=""/>
 							</div>
 
 							
 							<div class="form-group">
-								<label class="control-label"><strong>Window to Wall Ratio</strong>  </label><div style="clear:both"></div>
+								<a class="fpop fancybox" href="#show"> Window to Wall Ratio</a>
+								<a class="fpop fancybox" href="#show2"> Roof Type </a>
+								<a class="fpop fancybox" href="#show1"> Glass Type </a>
+								<a class="fpop fancybox" href="#show3"> wall Type </a>
+								<div style="clear:both;height:20px"></div>
+							
+									<div id="show"  style="display:none">
 										<div class="radio-list">
 											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions
 											
 											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions
 										</div>
-								<div id="swwr">
-									<span style="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-									<br/>
-									<div id="range_3_box">
-										<input type="text" value="" id="range_3-min" class="min" />
-										<input type="text" value="" id="range_3-max" class="max" />
-										<br/>
-										<input id="range_3" type="text" name="wwr[]" value=""/>
-									</div>
-									<div id="range_3_text" style="display:none">
-										<input type="text" name="wwr[]" value=""/>
-									</div>
-								</div>
-								
-								<div id="dwwr">
-									<label class="control-label">Front WWR:- <span style="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-									<div id="range_3_1_box">
-										<input type="text" value="" id="range_3_1-min" class="min" />
-										<input type="text" value="" id="range_3_1-max" class="max" />
-										
-											<input id="range_3_1" type="text" name="wwr[]" value=""/>
-									</div>
-									<div id="range_3_1_text" style="display:none">
-										<input type="text" name="wwr[]" value=""/>
-									</div>
-									<br/>
-									
-									<label class="control-label">Back WWR:-	<span style="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-									<div id="range_3_2_box">
-											<input type="text" value="" id="range_3_2-min" class="min" />
-										<input type="text" value="" id="range_3_2-max" class="max" />
-										
-											<input id="range_3_2" type="text" name="wwr[]" value=""/>
-									</div>
-									<div id="range_3_2_text" style="display:none">
-										<input type="text" name="wwr[]" value=""/>
-									</div>
-									<br/>
-								
-									<label class="control-label">Left WWR:-	<span style="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-									<div id="range_3_3_box">
-											<input type="text" value="" id="range_3_3-min" class="min" />
-										<input type="text" value="" id="range_3_3-max" class="max" />
-										
-											<input id="range_3_3" type="text" name="wwr[]" value=""/>
-									</div>
-									<div id="range_3_3_text" style="display:none">
-										<input type="text" name="wwr[]" value=""/>
-									</div>
-									<br/>
-									
-									<label class="control-label">Right WWR:- <span style="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span></label><div style="clear:both"></div>
-									<div id="range_3_4_box">
-										<input type="text" value="" id="range_3_4-min" class="min" />
-										<input type="text" value="" id="range_3_4-max" class="max" />
-										
-										<input id="range_3_4" type="text" name="wwr[]" value=""/>
-									</div>	
-									<div id="range_3_4_text" style="display:none">
-										<input type="text" name="wwr[]" value=""/>
-									</div>
-								 </div>
+										<div id="swwr">
+											<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
 											
+											<span id="range_3_box">
+												<input type="text" value="" id="range_3-min" class="min" />
+												<input type="text" value="" id="range_3-max" class="max" />
+												<input id="range_3" type="text" name="wwr[]" value=""/>
+											</span>
+											<div id="range_3_text" style="display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+										</div>
+										
+										<div id="dwwr">
+											<label class="control-label">Front WWR:- <span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											<span id="range_3_1_box">
+												<input type="text" value="" id="range_3_1-min" class="min" />
+												<input type="text" value="" id="range_3_1-max" class="max" />
+												
+													<input id="range_3_1" type="text" name="wwr[]" value=""/>
+											</span>
+											<span id="range_3_1_text" style="display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</span>
+											</label>
+											
+											<label class="control-label">Back WWR:-	<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											<span id="range_3_2_box">
+													<input type="text" value="" id="range_3_2-min" class="min" />
+												<input type="text" value="" id="range_3_2-max" class="max" />
+												
+													<input id="range_3_2" type="text" name="wwr[]" value=""/>
+											</span>
+											<span id="range_3_2_text" style="display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</span>
+											</label>
+										
+											<label class="control-label">Left WWR:-	<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											<span id="range_3_3_box">
+													<input type="text" value="" id="range_3_3-min" class="min" />
+												<input type="text" value="" id="range_3_3-max" class="max" />
+												
+													<input id="range_3_3" type="text" name="wwr[]" value=""/>
+											</span>
+											<span id="range_3_3_text" style="display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</span>
+											</label>
+											
+											<label class="control-label">Right WWR:- <span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											<span id="range_3_4_box">
+												<input type="text" value="" id="range_3_4-min" class="min" />
+												<input type="text" value="" id="range_3_4-max" class="max" />
+												
+												<input id="range_3_4" type="text" name="wwr[]" value=""/>
+											</span>	
+											<span id="range_3_4_text" style="display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</span>
+											</label>
+										 </div>
+								</div>			
 							</div>
 														
 							<div class="form-group">
-								<label class="control-label"><strong>Glass Type</strong> </label><div style="clear:both"></div>
-								<?php
-									//mysql_connect("need4all.com.mysql", "need4all_com", "MeetvMysql");
-									//mysql_select_db("need4all_com");
-									//$result = mysql_query("SELECT * FROM `user_glass_types` WHERE `user_id` = 1");
-								?>
-								User Glass Types:- 
-								<div style="clear:both;height:10px"></div>			
 								
-								<div class="col-xs-5">
-									<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
-										<?php
-										$i = 0;
-										foreach($user_glass_types as $ug)
-										{
-											$i++;
-										?>
-											<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->SolarHeat; ?>,VLT-<?php echo $ug->VisibleTrans; ?>)</option>
-										<?php
-										}
-										?>
-									</select>
-								</div>
-								
-								<div class="col-xs-2" style="margin-top:50px">
-									<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
-									<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
-								</div>
-								
-								<div class="col-xs-5">
-									<select name="glass-types[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
+								<div style="display:none" id="show1">
+									User Glass Types:- 
+									<div style="clear:both;height:10px"></div>			
+									
+									<div class="col-xs-5">
+										<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
+											<?php
+											$i = 0;
+											foreach($user_glass_types as $ug)
+											{
+												$i++;
+											?>
+												<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->SolarHeat; ?>,VLT-<?php echo $ug->VisibleTrans; ?>)</option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+									
+									<div class="col-xs-2" style="margin-top:50px">
+										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
+										<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
+									</div>
+									
+									<div class="col-xs-5">
+										<select name="glass-types[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
+									</div>
 								</div>
 							</div>
 							
-					<div style="clear:both;height:10px"></div>			
-					<div class="portlet box yellow">
-						<div class="portlet-title">
-							<div class="caption">
-								Roof Type
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="expand">
-								</a>
-							
-							</div>
-						</div>
-						<div class="portlet-body"   style="display:none">
-							<div class="tabbable-custom ">
+					<div class="form-group">
+						<div id="show2"   style="display:none">
 								<div style="">	
-									<label class="control-label">Layer 1</label><div style="clear:both"></div>
+									<label class="control-label">Layer 1</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -365,7 +358,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 2</label><div style="clear:both"></div>
+									<label class="control-label">Layer 2</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -381,7 +374,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 3</label><div style="clear:both"></div>
+									<label class="control-label">Layer 3</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -397,7 +390,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 4</label><div style="clear:both"></div>
+									<label class="control-label">Layer 4</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -411,27 +404,13 @@
 									</select>
 									<input type="text" name="roof-type[]" value="" id="ews4" class="ews" style="display:none" />
 								</div>
-								
-								
-							</div>
 						</div>
 					</div>
 					
-					<div class="portlet box yellow">
-						<div class="portlet-title">
-							<div class="caption">
-								Wall Type
-							</div>
-							<div class="tools">
-								<a href="javascript:;" class="expand">
-								</a>
-							
-							</div>
-						</div>
-						<div class="portlet-body"  style="display:none">
-							<div class="tabbable-custom">
+					<div class="form-group">
+						<div class="portlet-body" id="show3" style="display:none">
 								<div style="">	
-									<label class="control-label">Layer 1</label><div style="clear:both"></div>
+									<label class="control-label">Layer 1</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -447,7 +426,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 2</label><div style="clear:both"></div>
+									<label class="control-label">Layer 2</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -463,7 +442,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 3</label><div style="clear:both"></div>
+									<label class="control-label">Layer 3</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -479,7 +458,7 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 4</label><div style="clear:both"></div>
+									<label class="control-label">Layer 4</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
@@ -493,8 +472,6 @@
 									</select>
 									<input type="text" name="wall-type[]" value="" id="ews8" class="ews" style="display:none" />
 								</div>
-							
-							</div>
 						</div>
 					</div>
 					
@@ -520,7 +497,7 @@
 					</div>
 				</div>
 				
-				<div class="col-md-6" >
+				<div class="col-md-6" style="width:40%">
 					<div class="portlet-body" id="portlet-body">
 						<ul class="nav nav-tabs" style="margin-bottom:0px">
 							<li class="active">
