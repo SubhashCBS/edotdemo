@@ -353,6 +353,7 @@ class IndexController extends AbstractActionController
 		}
 		else
 		{
+			$fileno=$fileno-1;
 			//$str = $_SERVER['DOCUMENT_ROOT']."/edotdemo/".$cityname;
 			$str="p"."./working_directory/parametric/".$unique_counter." ".$cityname." ".$fileno;
 				fputs ($fp, $str);
