@@ -250,6 +250,9 @@ Demo.init(); // init demo features  // set current page
 
 <script type="text/javascript">
 	$(document).ready(function() {
+	var sd = 0;
+	var td = 0;
+	
 		$(".fancybox").fancybox({
 			onComplete : function(){alert("ok")}
 		});
@@ -261,6 +264,9 @@ Demo.init(); // init demo features  // set current page
 			
 		$("#show-wwr").click(function() {
 		
+		if(sd == 0)
+		{
+			sd = sd+1;
 		setTimeout(function(){
     $("#range_3, #range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
 						min: 0,
@@ -272,11 +278,19 @@ Demo.init(); // init demo features  // set current page
 						hasGrid: true
 					});
 }, 2000);
+
+		}
 			
 		
 		});	
 		
 		$("#uniform-wwr2").click(function() {
+		
+		
+		if(td == 0)
+		{
+			td = td+1;
+		setTimeout(function(){
 	 $("#range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
 						min: 0,
 						max: 90,
@@ -287,7 +301,12 @@ Demo.init(); // init demo features  // set current page
 						hasGrid: true
 					});
 		
+		
 		});
+		
+		}
+		});
+		
 	});
 </script>
 

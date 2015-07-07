@@ -198,7 +198,7 @@ $(".wwr").on("change", function(){
 	}
 	else
 	{
-		$("#1").find("img").attr("src", "/demo/public/assets/admin/layout/img/unlock.png");
+		$("#1").find("img").attr("src", "/edotdemo/public/assets/admin/layout/img/unlock.png");
 		$("#range_1_box").hide();
 		$("#range_1_text").show();
 		
@@ -254,16 +254,16 @@ $(".lock").on("click", function(){
 		$(".over-hang").val();
 	}
 	
-	if($(this).find("img").attr('src') == "/demo/public/assets/admin/layout/img/lock.png")
+	if($(this).find("img").attr('src') == "/edotdemo/public/assets/admin/layout/img/lock.png")
 	{
-		$(this).find("img").attr("src", "/demo/public/assets/admin/layout/img/unlock.png");
+		$(this).find("img").attr("src", "/edotdemo/public/assets/admin/layout/img/unlock.png");
 		$("#range_"+id+"_box").hide();
 		$("#range_"+id+"_text").show();
 		
 	}
 	else
 	{
-		$(this).find("img").attr("src", "/demo/public/assets/admin/layout/img/lock.png");
+		$(this).find("img").attr("src", "/edotdemo/public/assets/admin/layout/img/lock.png");
 		$("#range_"+id+"_box").show();
 		$("#range_"+id+"_text").hide();
 	}
