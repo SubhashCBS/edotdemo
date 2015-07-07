@@ -209,7 +209,7 @@ $(".wwr").on("change", function(){
 			$(this).val('Insulation');
 			$(this).prop('disabled', true);
 		});
-		$("#r5").show();
+		//$("#r5").show();
 	}
 	
 	
@@ -278,7 +278,7 @@ $("#r5").hide();
 		if($(this).val() == 'Insulation')
 		{
 		//alert("ok1");
-			$("#r5").show();
+			//$("#r5").show();
 		}
 	});
 });
