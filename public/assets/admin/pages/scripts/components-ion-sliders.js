@@ -140,7 +140,7 @@ var ComponentsIonSliders = function () {
 			});
 			
 			
-			$(".min, .max").on("blur", function(){
+			$(".min, .max").keyup(function(){
 				
 					var aid = $(this).attr("id");
 					var aid_ar = aid.split("-");
@@ -173,6 +173,7 @@ var ComponentsIonSliders = function () {
 						hasGrid: true
 					});
 				}
+				
             });
             
         }

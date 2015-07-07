@@ -236,7 +236,7 @@
 								<a class="fpop fancybox" href="#show3"> wall Type </a>
 								<div style="clear:both;height:20px"></div>
 							
-									<div id="show"  style="display:none">
+									<div id="show"  style="display:none;width:600px;">
 										<div class="radio-list">
 											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions
 											
@@ -309,7 +309,7 @@
 														
 							<div class="form-group">
 								
-								<div style="display:none" id="show1">
+								<div style="display:none;width:600px;" id="show1">
 									User Glass Types:- 
 									<div style="clear:both;height:10px"></div>			
 									
@@ -340,7 +340,7 @@
 							</div>
 							
 					<div class="form-group">
-						<div id="show2"   style="display:none">
+						<div id="show2"   style="width:600px;text-align:center;display:none">
 								<div style="">	
 									<label class="control-label">Layer 1</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
@@ -408,7 +408,7 @@
 					</div>
 					
 					<div class="form-group">
-						<div class="portlet-body" id="show3" style="display:none">
+						<div class="portlet-body" id="show3" style="display:none;width:600px;">
 								<div style="">	
 									<label class="control-label">Layer 1</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
@@ -580,7 +580,7 @@ $(window).scrollTop( 250 );
 	  
 	  	$.ajax({
 			   type: "POST",
-			   url: "/demo/public/coolroof/index/mycommandfilegenerator",
+			   url: "/edotdemo/public/coolroof/index/mycommandfilegenerator",
 			   data:data,
 			   beforeSend: function(){
 				   $("#portlet-body").html("<img src='<?php echo $this->basePath(); ?>/assets/admin/layout/img/loading.gif' />");
