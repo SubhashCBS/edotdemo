@@ -250,7 +250,44 @@ Demo.init(); // init demo features  // set current page
 
 <script type="text/javascript">
 	$(document).ready(function() {
-		$(".fancybox").fancybox({'width':400});
+		$(".fancybox").fancybox({
+			onComplete : function(){alert("ok")}
+		});
+		
+		
+		$(".okConfirm").click(function() {
+                $.fancybox.close();
+            })
+			
+		$("#show-wwr").click(function() {
+		
+		setTimeout(function(){
+    $("#range_3, #range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
+						min: 0,
+						max: 90,
+						from: 0,
+						to: 90,
+						step: 1,
+						prettify: false,
+						hasGrid: true
+					});
+}, 2000);
+			
+		
+		});	
+		
+		$("#uniform-wwr2").click(function() {
+	 $("#range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
+						min: 0,
+						max: 90,
+						from: 0,
+						to: 90,
+						step: 1,
+						prettify: false,
+						hasGrid: true
+					});
+		
+		});
 	});
 </script>
 
