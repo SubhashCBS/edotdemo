@@ -6,6 +6,7 @@
 .fpop{background:#4B77BE;padding:8px;margin-left:10px;color:white}
 .line{text-align:center !important}
 .radio input[type=radio]{margin-left:0px}
+.page-footer{height:15px}
 </style>
 <?php //print_r($user_glass_types); ?>
 <img STYLE="width:400px;float:right;display:none" src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
@@ -185,7 +186,7 @@
 						</div>
 
 				
-						<div class="portlet-body">
+						<div class="portlet-body" style="min-height:450px">
 							<div class="form-group">
 								<div id="range_1_box">
 									<div style="float:left;width:40%" >
@@ -331,8 +332,8 @@
 						<div id="show2"   style="width:150px;float:left">
 								<div style="text-align:center;font-weight:bold">Roof Type</div>
 								<div style="">	
-									<label class="control-label">Layer 1</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+										<option value="">Layer 1</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -347,8 +348,9 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 2</label>
+									
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+										<option value="">Layer 2</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -363,8 +365,8 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 3</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+									<option value="">Layer 3</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -379,8 +381,8 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 4</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+									<option value="">Layer 4</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -398,8 +400,8 @@
 						<div class="portlet-body" id="show3" style="width:150px;float:right">
 								<div style="text-align:center;font-weight:bold">Wall Type</div>
 								<div style="">	
-									<label class="control-label">Layer 1</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 1</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -414,8 +416,8 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 2</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 2</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -430,8 +432,8 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 3</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 3</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -446,8 +448,9 @@
 								</div>
 								
 								<div style="">	
-									<label class="control-label">Layer 4</label>
+									
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 4</option>
 										<option value="1">      Metal Surface         </option>
 										<option value="2" selected="">      12mm thick motar       </option>
 										<option value="3">      Built-up roofing      </option>
@@ -472,7 +475,7 @@
 									<div style="clear:both;height:10px"></div>			
 									
 									<div class="col-xs-5">
-										<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
+										<select name="from" id="multiselect" class="form-control" size="4" multiple="multiple" style="overflow-x:scroll;padding:0px">
 											<?php
 											$i = 0;
 											foreach($user_glass_types as $ug)
@@ -486,13 +489,13 @@
 										</select>
 									</div>
 									
-									<div class="col-xs-2" style="margin-top:50px">
+									<div class="col-xs-2" style="margin-top:10px">
 										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
 										<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
 									</div>
 									
 									<div class="col-xs-5">
-										<select name="glass-types[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
+										<select name="glass-types[]" id="multiselect_to" class="form-control" size="4" multiple="multiple"></select>
 									</div>
 									
 								</div>
@@ -515,10 +518,6 @@
 							</div>
 					</div>	
 					
-							<div class="form-group" Style="text-align:center">
-								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
-								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
-							</div>
 						</div>
 						
 						
@@ -561,6 +560,11 @@
 							<div class="tab-pane fade" id="tab_1_4">
 								
 							</div>
+							<div class="form-group" Style="text-align:center;position:absolute;top:400px">
+								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
+								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
+							</div>
+
 						</div>
 					</div>
 				</div>
