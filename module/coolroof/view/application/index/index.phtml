@@ -187,13 +187,17 @@
 				
 						<div class="portlet-body">
 							<div class="form-group">
-								<label class="control-label"><strong>Azimuth</strong> <span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-								<span id="range_1_box">
-									<input type="text" value="" id="range_1-min" class="min" />
-									<input type="text" value="" id="range_1-max" class="max" />
-									<input id="range_1" class="azimuth" type="text" value=""/>
-								</span>
-								</label>
+								<div id="range_1_box">
+									<div style="float:left;width:40%" >
+										<strong>Azimuth</strong> <span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+										<input type="text" value="" id="range_1-min" class="min" />
+										<input type="text" value="" id="range_1-max" class="max" />
+									</div>
+									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+										<input type="text" id="range_1" />
+									</div>
+									<div style="clear:both" ></div>
+								</div>
 								<div id="range_1_text" style="display:none">
 									<input type="text" class="azimuth"  value=""/>
 								</div>
@@ -201,155 +205,131 @@
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label"><strong>Aspect Ratio</strong>  <span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-								<span id="range_2_box">
-									<input type="text" value="" id="range_2-min" class="min" />
-									<input type="text" value="" id="range_2-max" class="max" />
-									<br/>
-									<input id="range_2" type="text" class="aspect-ratio" value=""/>
-								</span>
-								<span id="range_2_text" style="display:none">
+								<div id="range_1_box">
+									<div style="float:left;width:40%" >
+										<strong>Aspect Ratio</strong>  <span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+										<input type="text" value="" id="range_2-min" class="min" />
+										<input type="text" value="" id="range_2-max" class="max" />
+									</div>
+									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+										<input type="text" id="range_2" />
+									</div>
+									<div style="clear:both" ></div>
+								</div>
+								<div id="range_1_text" style="display:none">
 									<input type="text" class="aspect-ratio" value=""/>
-								</span>
-								</label>
+								</div>
 								<input type="hidden" id="aspect-ratio" name="aspect-ratio" value=""/>
 							</div>
 							
 							<div class="form-group">
-								<label class="control-label"><strong>Overhang</strong>  <span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-								<span id="range_4_box">
-									<input type="text" value="" id="range_4-min" class="min" />
-									<input type="text" value="" id="range_4-max" class="max" />
-									<br/>
-									<input id="range_4" type="text" class="over-hang" value=""/>
-								</span>
-								<span id="range_4_text" style="display:none">
+								<div id="range_1_box">
+									<div style="float:left;width:40%" >
+										<strong>Overhang</strong>  <span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+										<input type="text" value="" id="range_4-min" class="min" />
+										<input type="text" value="" id="range_4-max" class="max" />
+									</div>
+									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+										<input type="text" id="range_4" />
+									</div>
+									<div style="clear:both" ></div>
+								</div>
+								<div id="range_4_text" style="display:none">
 									<input type="text" class="over-hang" value=""/>
-								</span>
-								</label>
+								</div>
 								<input type="hidden" id="over-hang" name="over-hang" value=""/>
 							</div>
 
 							
 							<div class="form-group">
-								<a class="fpop fancybox" id="show-wwr" href="#show"> Window to Wall Ratio</a>
-								<a class="fpop fancybox" href="#show2"> Roof Type </a>
-								<a class="fpop fancybox" href="#show1"> Glass Type </a>
-								<a class="fpop fancybox" href="#show3"> wall Type </a>
-								<div style="clear:both;height:20px"></div>
-							
-									<div id="show"  style="display:none;width:600px;">
+									<div  style="width:600px;">
 										<div class="radio-list">
 											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions
 											
 											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions
 										</div>
 										<div id="swwr">
-											<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											
-											<span id="range_3_box">
-												<input type="text" value="" id="range_3-min" class="min" />
-												<input type="text" value="" id="range_3-max" class="max" />
-												<input id="range_3" type="text" name="wwr[]" value=""/>
-											</span>
+											<div style="float:left;width:40%" >
+												<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+														<input type="text" value="" id="range_3-min" class="min" />
+														<input type="text" value="" id="range_3-max" class="max" />
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
+														<input id="range_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
 											<div id="range_3_text" style="display:none">
 												<input type="text" name="wwr[]" value=""/>
 											</div>
 										</div>
 										
-										<div id="dwwr">
-											<label class="control-label">Front WWR:- <span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											<span id="range_3_1_box">
-												<input type="text" value="" id="range_3_1-min" class="min" />
-												<input type="text" value="" id="range_3_1-max" class="max" />
+										<div id="dwwr" style="display:none">
+											<div style="float:left;width:40%" >
+												Front WWR:- <span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+														<input type="text" value="" id="range_3_1-min" class="min" />
+														<input type="text" value="" id="range_3_1-max" class="max" />
 												
-													<input id="range_3_1" type="text" name="wwr[]" value=""/>
-											</span>
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
+														<input id="range_3_1" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
 											<span id="range_3_1_text" style="display:none">
 												<input type="text" name="wwr[]" value=""/>
 											</span>
-											</label>
 											
-											<label class="control-label">Back WWR:-	<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											<span id="range_3_2_box">
+											<div style="float:left;width:40%" >
+												Back WWR:-	<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
 													<input type="text" value="" id="range_3_2-min" class="min" />
-												<input type="text" value="" id="range_3_2-max" class="max" />
+													<input type="text" value="" id="range_3_2-max" class="max" />
 												
-													<input id="range_3_2" type="text" name="wwr[]" value=""/>
-											</span>
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
+														<input id="range_3_2" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+											
 											<span id="range_3_2_text" style="display:none">
 												<input type="text" name="wwr[]" value=""/>
 											</span>
-											</label>
-										
-											<label class="control-label">Left WWR:-	<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											<span id="range_3_3_box">
+											
+											<div style="float:left;width:40%" >
+												Left WWR:-	<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
 													<input type="text" value="" id="range_3_3-min" class="min" />
-												<input type="text" value="" id="range_3_3-max" class="max" />
+													<input type="text" value="" id="range_3_3-max" class="max" />
 												
-													<input id="range_3_3" type="text" name="wwr[]" value=""/>
-											</span>
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
+														<input id="range_3_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+
 											<span id="range_3_3_text" style="display:none">
 												<input type="text" name="wwr[]" value=""/>
 											</span>
-											</label>
 											
-											<label class="control-label">Right WWR:- <span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											<span id="range_3_4_box">
-												<input type="text" value="" id="range_3_4-min" class="min" />
-												<input type="text" value="" id="range_3_4-max" class="max" />
+											<div style="float:left;width:40%" >
+													Right WWR:- <span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+													<input type="text" value="" id="range_3_4-min" class="min" />
+													<input type="text" value="" id="range_3_4-max" class="max" />
 												
-												<input id="range_3_4" type="text" name="wwr[]" value=""/>
-											</span>	
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
+														<input id="range_3_4" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+
 											<span id="range_3_4_text" style="display:none">
 												<input type="text" name="wwr[]" value=""/>
 											</span>
-											</label>
 										 </div>
-									<div class="line">
-										<a class="okConfirm button medium" href="javascript:return false">OK</a>
-									</div>	 
 								</div>			
 							</div>
 														
-							<div class="form-group">
-								
-								<div style="display:none;width:600px;" id="show1">
-									User Glass Types:- 
-									<div style="clear:both;height:10px"></div>			
-									
-									<div class="col-xs-5">
-										<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
-											<?php
-											$i = 0;
-											foreach($user_glass_types as $ug)
-											{
-												$i++;
-											?>
-												<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->SolarHeat; ?>,VLT-<?php echo $ug->VisibleTrans; ?>)</option>
-											<?php
-											}
-											?>
-										</select>
-									</div>
-									
-									<div class="col-xs-2" style="margin-top:50px">
-										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
-										<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
-									</div>
-									
-									<div class="col-xs-5">
-										<select name="glass-types[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
-									</div>
-									
-									<div class="line">
-										<a class="okConfirm button medium" href="javascript:return false">OK</a>
-									</div>
-								</div>
-							</div>
 							
 					<div class="form-group">
-						<div id="show2"   style="width:600px;text-align:center;display:none">
+						<div id="show2"   style="width:150px;float:left">
+								<div style="text-align:center;font-weight:bold">Roof Type</div>
 								<div style="">	
 									<label class="control-label">Layer 1</label>
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
@@ -413,14 +393,10 @@
 									</select>
 									<input type="text" name="roof-type[]" value="" id="ews4" class="ews" style="display:none" />
 								</div>
-									<div class="line">
-										<a class="okConfirm button medium" href="javascript:return false">OK</a>
-									</div>
+									
 						</div>
-					</div>
-					
-					<div class="form-group">
-						<div class="portlet-body" id="show3" style="display:none;width:600px;">
+						<div class="portlet-body" id="show3" style="width:150px;float:right">
+								<div style="text-align:center;font-weight:bold">Wall Type</div>
 								<div style="">	
 									<label class="control-label">Layer 1</label>
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
@@ -484,11 +460,47 @@
 									</select>
 									<input type="text" name="wall-type[]" value="" id="ews8" class="ews" style="display:none" />
 								</div>
-									<div class="line">
-										<a class="okConfirm button medium" href="javascript:return false">OK</a>
-									</div>
+									
 
 						</div>
+						<div style="clear:both"></div>
+					</div>
+					
+					<div class="form-group">
+								<div style="text-align:center;font-weight:bold">Glass Types</div>
+								<div style="isplay:none;width:600px;" id="show1">
+									<div style="clear:both;height:10px"></div>			
+									
+									<div class="col-xs-5">
+										<select name="from" id="multiselect" class="form-control" size="8" multiple="multiple" style="overflow-x:scroll;padding:0px">
+											<?php
+											$i = 0;
+											foreach($user_glass_types as $ug)
+											{
+												$i++;
+											?>
+												<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->SolarHeat; ?>,VLT-<?php echo $ug->VisibleTrans; ?>)</option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+									
+									<div class="col-xs-2" style="margin-top:50px">
+										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
+										<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
+									</div>
+									
+									<div class="col-xs-5">
+										<select name="glass-types[]" id="multiselect_to" class="form-control" size="8" multiple="multiple"></select>
+									</div>
+									
+								</div>
+							</div>
+							
+					
+					<div class="form-group">
+						
 					</div>
 					
 					<div id="r5">
