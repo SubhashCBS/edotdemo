@@ -1,12 +1,23 @@
 <style type="text/css">
 .irs-min, .irs-max{display:none !important}
-.min, .max{width:50px}
+.min, .max{width:50px;height:20px}
+.lock img{height:30px}
 .control-label{clear:both;display:block}
 .form-group{margin-bottom:0px}
 .fpop{background:#4B77BE;padding:8px;margin-left:10px;color:white}
 .line{text-align:center !important}
 .radio input[type=radio]{margin-left:0px}
 .page-footer{height:15px}
+.slable{width:150px}
+.radio-list{height:25px}
+.irs-grid-pol{height:20px;width:3px}
+.irs-grid .small{display:none}
+.irs-grid-text{display:none}
+.irs-with-grid{height:40px}
+.irs-line{height:3px !important;top:29px !important;}
+.irs-single{top:8px;left:2px}
+.irs-from:after, .irs-to:after, .irs-single:after{display:none}
+.irs-from, .irs-to, .irs-single{padding-left:0px}
 </style>
 <?php //print_r($user_glass_types); ?>
 <img STYLE="width:400px;float:right;display:none" src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
@@ -189,147 +200,196 @@
 						<div class="portlet-body" style="min-height:450px">
 							<div class="form-group">
 								<div id="range_1_box">
-									<div style="float:left;width:40%" >
-										<strong>Azimuth</strong> <span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-										<input type="text" value="" id="range_1-min" class="min" />
-										<input type="text" value="" id="range_1-max" class="max" />
+									<div style="float:left;" class="slable">
+										<strong>Azimuth(dg)</strong>
 									</div>
-									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+									<div style="float:left;width:5%" class="slable">
+										<span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;width:10%" class="range_1_box">
+										<input type="text" value="" id="range_1-min" class="min" />
+									</div>
+									<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_1_box">
 										<input type="text" id="range_1" />
 									</div>
+									<div style="float:left;width:10%;margin-left:10px;" class="range_1_box">
+										<input type="text" value="" id="range_1-max" class="max" />
+									</div>
+									<div id="range_1_text" style="float:left;width:40%;position:relative;display:none">
+										<input type="text" class="azimuth"  value=""/>
+									</div>
 									<div style="clear:both" ></div>
-								</div>
-								<div id="range_1_text" style="display:none">
-									<input type="text" class="azimuth"  value=""/>
 								</div>
 								<input type="hidden" id="azimuth" name="azimuth" value=""/>
 							</div>
 							
 							<div class="form-group">
 								<div id="range_1_box">
-									<div style="float:left;width:40%" >
-										<strong>Aspect Ratio</strong>  <span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-										<input type="text" value="" id="range_2-min" class="min" />
-										<input type="text" value="" id="range_2-max" class="max" />
+									<div style="float:left;" class="slable">
+										<strong>Aspect Ratio(%)</strong>  
 									</div>
-									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+									<div style="float:left;width:5%" class="slable">
+										<span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;width:10%" class="range_2_box">
+										<input type="text" value="" id="range_2-min" class="min" />
+									</div>
+									<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_2_box">
 										<input type="text" id="range_2" />
 									</div>
+									<div style="float:left;margin-left:10px;width:10%;" class="range_2_box">
+										<input type="text" value="" id="range_2-max" class="max" />
+									</div>
+									<div id="range_2_text" style="float:left;display:none">
+										<input type="text" class="aspect-ratio" value=""/>
+									</div>
 									<div style="clear:both" ></div>
-								</div>
-								<div id="range_1_text" style="display:none">
-									<input type="text" class="aspect-ratio" value=""/>
 								</div>
 								<input type="hidden" id="aspect-ratio" name="aspect-ratio" value=""/>
 							</div>
 							
 							<div class="form-group">
 								<div id="range_1_box">
-									<div style="float:left;width:40%" >
-										<strong>Overhang</strong>  <span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-										<input type="text" value="" id="range_4-min" class="min" />
+									<div style="float:left;" class="slable">
+										<strong>Overhang(m)</strong>
+									</div>
+									<div style="float:left;width:5%" class="slable">
+										<span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;width:10%" class="range_4_box">										  
 										<input type="text" value="" id="range_4-max" class="max" />
 									</div>
-									<div style="float:left;width:40%;position:relative;top:-10px;margin-bottom:-10px" >
+									<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_4_box">
 										<input type="text" id="range_4" />
 									</div>
+									<div style="float:left;margin-left:10px;width:10%" class="range_4_box">										  
+										<input type="text" value="" id="range_4-max" class="max" />
+									</div>
+									<div id="range_4_text" style="float:left;display:none">
+										<input type="text" class="over-hang" value=""/>
+									</div>
 									<div style="clear:both" ></div>
-								</div>
-								<div id="range_4_text" style="display:none">
-									<input type="text" class="over-hang" value=""/>
 								</div>
 								<input type="hidden" id="over-hang" name="over-hang" value=""/>
 							</div>
 
 							
 							<div class="form-group">
-									<div  style="width:600px;">
+									<div  style="idth:600px;">
 										<div class="radio-list">
 											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same in all directions
 											
 											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions
 										</div>
-										<div id="swwr">
-											<div style="float:left;width:40%" >
+										<div id="swwr">										
+											<div style="float:left;" class="slable">
+												&nbsp;
+											</div>
+											<div style="float:left;width:5%" class="slable">
 												<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-														<input type="text" value="" id="range_3-min" class="min" />
-														<input type="text" value="" id="range_3-max" class="max" />
 											</div>
-											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
-														<input id="range_3" type="text" name="wwr[]" value=""/>
+											<div style="float:left;width:10%" class="range_3_box">										  
+												<input type="text" value="" id="range_3-min" class="min" />
 											</div>
-											<div style="clear:both" ></div>
-											<div id="range_3_text" style="display:none">
+											<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_box">
+												<input id="range_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:10px;width:10%" class="range_3_box">										  
+												<input type="text" value="" id="range_3-max" class="max" />
+											</div>
+											<div id="range_3_text" style="display:none;float:left">
 												<input type="text" name="wwr[]" value=""/>
 											</div>
+												<div style="clear:both" ></div>
 										</div>
 										
 										<div id="dwwr" style="display:none">
-											<div style="float:left;width:40%" >
-												Front WWR:- <span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-														<input type="text" value="" id="range_3_1-min" class="min" />
-														<input type="text" value="" id="range_3_1-max" class="max" />
-												
+											<div style="float:left;" class="slable">
+												<strong>Front WWR(%)</strong>
 											</div>
-											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
-														<input id="range_3_1" type="text" name="wwr[]" value=""/>
+											<div style="float:left;width:5%" class="slable">
+												<span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
 											</div>
-											<div style="clear:both" ></div>
-											<span id="range_3_1_text" style="display:none">
+											<div style="float:left;width:10%" class="range_3_1_box">										  
+												<input type="text" value="" id="range_3_1-min" class="min" />
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_1_box">
+												<input id="range_3_1" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:10px;width:10%" class="range_3_1_box">										  
+												<input type="text" value="" id="range_3_1-max" class="max" />
+											</div>
+											<div id="range_3_1_text" style="float:left;display:none">
 												<input type="text" name="wwr[]" value=""/>
-											</span>
-											
-											<div style="float:left;width:40%" >
-												Back WWR:-	<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-													<input type="text" value="" id="range_3_2-min" class="min" />
-													<input type="text" value="" id="range_3_2-max" class="max" />
-												
-											</div>
-											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
-														<input id="range_3_2" type="text" name="wwr[]" value=""/>
 											</div>
 											<div style="clear:both" ></div>
 											
-											<span id="range_3_2_text" style="display:none">
-												<input type="text" name="wwr[]" value=""/>
-											</span>
-											
-											<div style="float:left;width:40%" >
-												Left WWR:-	<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-													<input type="text" value="" id="range_3_3-min" class="min" />
-													<input type="text" value="" id="range_3_3-max" class="max" />
-												
+											<div style="float:left;" class="slable">
+												<strong>Back WWR(%)</strong>
 											</div>
-											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
-														<input id="range_3_3" type="text" name="wwr[]" value=""/>
+											<div style="float:left;width:5%" class="slable">
+												<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:10%" class="range_3_2_box">										  
+												<input type="text" value="" id="range_3_2-min" class="min" />
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_2_box">
+												<input id="range_3_2" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:10px;width:10%" class="range_3_2_box">										  
+												<input type="text" value="" id="range_3_2-max" class="max" />
+											</div>
+											<div id="range_3_2_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
 											</div>
 											<div style="clear:both" ></div>
-
-											<span id="range_3_3_text" style="display:none">
-												<input type="text" name="wwr[]" value=""/>
-											</span>
 											
-											<div style="float:left;width:40%" >
-													Right WWR:- <span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-													<input type="text" value="" id="range_3_4-min" class="min" />
-													<input type="text" value="" id="range_3_4-max" class="max" />
-												
+											<div style="float:left;" class="slable">
+												<strong>Left WWR(%)</strong>
 											</div>
-											<div style="float:left;width:40%;position:relative;top:-5px;margin-bottom:-5px" >
-														<input id="range_3_4" type="text" name="wwr[]" value=""/>
+											<div style="float:left;width:5%" class="slable">
+												<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:10%" class="range_3_3_box">										  
+												<input type="text" value="" id="range_3_3-min" class="min" />
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_3_box">
+												<input id="range_3_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:10px;width:10%" class="range_3_3_box">										  
+												<input type="text" value="" id="range_3_3-max" class="max" />
+											</div>
+											<div id="range_3_3_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
 											</div>
 											<div style="clear:both" ></div>
-
-											<span id="range_3_4_text" style="display:none">
+											
+											<div style="float:left;" class="slable">
+												<strong>Right WWR(%)</strong>
+											</div>
+											<div style="float:left;width:5%" class="slable">
+												<span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:10%" class="range_3_4_box">										  
+												<input type="text" value="" id="range_3_4-min" class="min" />
+											</div>
+											<div style="float:left;width:40%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_4_box">
+												<input id="range_3_4" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:10px;width:10%" class="range_3_4_box">										  
+												<input type="text" value="" id="range_3_4-max" class="max" />
+											</div>
+											<div id="range_3_4_text" style="float:left;display:none">
 												<input type="text" name="wwr[]" value=""/>
-											</span>
+											</div>
+											<div style="clear:both" ></div>
 										 </div>
 								</div>			
 							</div>
 														
 							
 					<div class="form-group">
-						<div id="show2"   style="width:150px;float:left">
+						<div id="show2"   style="idth:150px;float:left">
 								<div style="text-align:center;font-weight:bold">Roof Type</div>
 								<div style="">	
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
@@ -397,7 +457,7 @@
 								</div>
 									
 						</div>
-						<div class="portlet-body" id="show3" style="width:150px;float:right">
+						<div class="portlet-body" id="show3" style="idth:150px;float:right">
 								<div style="text-align:center;font-weight:bold">Wall Type</div>
 								<div style="">	
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
