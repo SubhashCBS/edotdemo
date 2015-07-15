@@ -97,6 +97,9 @@ var ComponentsIonSliders = function () {
                 hasGrid: true
             });
 			
+			
+			
+			
 			$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider({
                 min: 0,
                 max: 90,
@@ -135,7 +138,8 @@ var ComponentsIonSliders = function () {
 			$("#range_3-min").val(0);
 			$("#range_3-max").val(90);
 		
-			
+				$("#range_3_2-min, #range_3_3-min, #range_3_4-min").attr("disabled", "disabled");			
+				$("#range_3_2-max, #range_3_3-max, #range_3_4-max").attr("disabled", "disabled");			
 			$("#r5").hide();
 			
             
@@ -221,6 +225,9 @@ $(".wwr").on("change", function(){
 		$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
 						disable: true
 					});
+					
+		$("#range_3_2-min, #range_3_3-min, #range_3_4-min").attr("disabled", "disabled");			
+		$("#range_3_2-max, #range_3_3-max, #range_3_4-max").attr("disabled", "disabled");			
 
 		
 		$.each( $(".layers"), function( key, value ) {
@@ -243,10 +250,14 @@ $(".wwr").on("change", function(){
 						disable: false
 					});
 
-
+		$("#range_3_2-min, #range_3_3-min, #range_3_4-min").removeAttr("disabled");
+		$("#range_3_2-max, #range_3_3-max, #range_3_4-max").removeAttr("disabled");
 		
 		$.each( $(".layers"), function( key, value ) {
 			$(this).val(9);
+			var x = key+1;
+			
+			$("#ews"+x).show();
 			$(this).prop('disabled', true);
 		});
 		//$("#r5").show();
