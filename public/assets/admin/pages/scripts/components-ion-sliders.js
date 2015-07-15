@@ -140,6 +140,10 @@ var ComponentsIonSliders = function () {
 		
 				$("#range_3_2-min, #range_3_3-min, #range_3_4-min").attr("disabled", "disabled");			
 				$("#range_3_2-max, #range_3_3-max, #range_3_4-max").attr("disabled", "disabled");			
+			
+			$(".ews").show();
+			$(".ews").attr("placeholder", "mm");
+			$(".ews").attr("disabled", "disabled");
 			$("#r5").hide();
 			
             
@@ -258,6 +262,8 @@ $(".wwr").on("change", function(){
 			var x = key+1;
 			
 			$("#ews"+x).show();
+			$("#ews"+x).attr("placeholder", "mm");
+			$("#ews"+x).removeAttr("disabled");
 			$(this).prop('disabled', true);
 		});
 		//$("#r5").show();
@@ -269,7 +275,7 @@ $(".wwr").on("change", function(){
 
 $(".layers").on("change", function(){
 
-$(".ews").hide();
+
 
 	$.each( $(".layers"), function( key, value ) {
 		if($(this).val() == 9)
@@ -277,6 +283,8 @@ $(".ews").hide();
 			var x = key+1;
 			
 			$("#ews"+x).show();
+			$("#ews"+x).attr("placeholder", "mm");
+			$("#ews"+x).removeAttr("disabled");
 		}
 		
 	});
