@@ -86,7 +86,7 @@ var ComponentsIonSliders = function () {
             	
 				
 				
-			$("#range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider({
+			$("#range_3_1").ionRangeSlider({
                 min: 0,
                 max: 90,
                 from: 0,
@@ -95,6 +95,18 @@ var ComponentsIonSliders = function () {
                 postfix: "°",
                 prettify: true,
                 hasGrid: true
+            });
+			
+			$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider({
+                min: 0,
+                max: 90,
+                from: 0,
+                to: 90,
+                step: 1,
+                postfix: "°",
+                prettify: true,
+                hasGrid: true,
+				disable:true
             });
 			
 			$("#range_3_1-min").val(0);
@@ -123,7 +135,7 @@ var ComponentsIonSliders = function () {
 			$("#range_3-min").val(0);
 			$("#range_3-max").val(90);
 		
-			$("#dwwr").hide();
+			
 			$("#r5").hide();
 			
             
@@ -190,14 +202,14 @@ var ComponentsIonSliders = function () {
 $(".wwr").on("change", function(){
 	if($(this).val() == "same_dir")
 	{
-		$("#swwr").show();
-		$("#dwwr").hide();
+		//$("#swwr").show();
+		//$("#dwwr").hide();
 		$("#1").find("img").attr("src", "/edotdemo/public/assets/admin/layout/img/lock.png");
 		
 		$(".range_1_box").show();
 		$("#range_1_text").hide();
 		
-		$("#range_3").ionRangeSlider("update", {
+		/*$("#range_3").ionRangeSlider("update", {
 						min: 0,
 						max: 90,
 						from: 0,
@@ -205,6 +217,9 @@ $(".wwr").on("change", function(){
 						step: 1,
 						prettify: false,
 						hasGrid: true
+					});*/
+		$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
+						disable: true
 					});
 
 		
@@ -220,16 +235,12 @@ $(".wwr").on("change", function(){
 		$("#range_1_text").show();
 		
 		$("#swwr").hide();
-		$("#dwwr").show();
+		//$("#dwwr").show();
 		
-		$("#range_3, #range_3_1, #range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
-						min: 0,
-						max: 90,
-						from: 0,
-						to: 90,
-						step: 1,
-						prettify: false,
-						hasGrid: true
+		//$("#range_3, #range_3_1, #range_3_2, #range_3_3, #range_3_4").removeAttr("disabled");
+		
+		$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider("update", {
+						disable: false
 					});
 
 

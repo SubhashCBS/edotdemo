@@ -281,7 +281,7 @@
 											
 											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different in all directions
 										</div>
-										<div id="swwr">										
+										<div id="swwr" style="display:none">										
 											<div style="float:left;" class="slable">
 												&nbsp;
 											</div>
@@ -303,7 +303,7 @@
 												<div style="clear:both" ></div>
 										</div>
 										
-										<div id="dwwr" style="display:none">
+										<div id="dwwr" tyle="display:none">
 											<div style="float:left;" class="slable">
 												<strong>Front WWR(%)</strong>
 											</div>
@@ -389,9 +389,9 @@
 														
 							
 					<div class="form-group">
-						<div id="show2"   style="idth:150px;float:left">
-								<div style="text-align:center;font-weight:bold">Roof Type</div>
-								<div style="">	
+						<div id="show2"   style="width:300px;float:left">
+								<div style="text-align:left;font-weight:bold">Roof Type</div>
+								<div style="margin-bottom:2px">	
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="">Layer 1</option>
 										<option value="1">      Metal Surface         </option>
@@ -407,7 +407,7 @@
 									<input type="text" name="roof-type[]" value="" id="ews1" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 										<option value="">Layer 2</option>
@@ -424,7 +424,7 @@
 									<input type="text" name="roof-type[]" value="" id="ews2" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 									<option value="">Layer 3</option>
 										<option value="1">      Metal Surface         </option>
@@ -440,7 +440,7 @@
 									<input type="text" name="roof-type[]" value="" id="ews3" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
 									<option value="">Layer 4</option>
 										<option value="1">      Metal Surface         </option>
@@ -457,9 +457,9 @@
 								</div>
 									
 						</div>
-						<div class="portlet-body" id="show3" style="idth:150px;float:right">
-								<div style="text-align:center;font-weight:bold">Wall Type</div>
-								<div style="">	
+						<div class="portlet-body" id="show3" style="idth:150px;float:left">
+								<div style="text-align:left;font-weight:bold">Wall Type</div>
+								<div style="margin-bottom:2px">	
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 									<option value="">Layer 1</option>
 										<option value="1">      Metal Surface         </option>
@@ -475,7 +475,7 @@
 									<input type="text" name="wall-type[]" value="" id="ews5" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 									<option value="">Layer 2</option>
 										<option value="1">      Metal Surface         </option>
@@ -491,7 +491,7 @@
 									<input type="text" name="wall-type[]" value="" id="ews6" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 									<option value="">Layer 3</option>
 										<option value="1">      Metal Surface         </option>
@@ -507,7 +507,7 @@
 									<input type="text" name="wall-type[]" value="" id="ews7" class="ews" style="display:none" />
 								</div>
 								
-								<div style="">	
+								<div style="margin-bottom:2px">	
 									
 									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
 									<option value="">Layer 4</option>
@@ -549,7 +549,7 @@
 										</select>
 									</div>
 									
-									<div class="col-xs-2" style="margin-top:10px">
+									<div class="col-xs-2" style="margin-top:5px">
 										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn btn-block">Add</button>
 										<button type="button" id="multiselect_leftSelected" class="btn btn-block">Remove</button>									
 									</div>
