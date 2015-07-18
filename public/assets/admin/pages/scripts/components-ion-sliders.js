@@ -24,9 +24,9 @@ var ComponentsIonSliders = function () {
 
             $("#range_2").ionRangeSlider({
                 min: 1,
-                max: 100,
+                max: 5,
                 from: 1,
-                to: 100,
+                to: 5,
                 step: 1,
                 prettify: false,
                 hasGrid: true,
@@ -36,7 +36,7 @@ var ComponentsIonSliders = function () {
             });
 			
 			$("#range_2-min").val(1);
-			$("#range_2-max").val(100);
+			$("#range_2-max").val(5);
 			
 			
 
@@ -68,9 +68,9 @@ var ComponentsIonSliders = function () {
 			$("#range_6-max").val(5000);
 
             $("#range_4").ionRangeSlider({
-                min: 0,
+                min: 0.1,
                 max: 2,
-                from: 0,
+                from: 0.1,
                 to: 2,
                 step: 1,
                 prettify: false,
@@ -80,7 +80,7 @@ var ComponentsIonSliders = function () {
 				}
             });
 			
-			$("#range_4-min").val(0);
+			$("#range_4-min").val(0.1);
 			$("#range_4-max").val(2);
             
             	
@@ -119,7 +119,7 @@ var ComponentsIonSliders = function () {
 			$("#range_3_2-max").val(90);
 			
 			$("#range_3_3-min").val(0);
-			$("#range_3_4-max").val(90);
+			$("#range_3_3-max").val(90);
 			
 			$("#range_3_4-min").val(0);
 			$("#range_3_4-max").val(90);
@@ -342,22 +342,25 @@ $("#r5").hide();
 	});
 });
 
-$("#uglass").on("click", function(){
+$("#multiselect_rightSelected").on("click", function(){
 
 
 	var uno = 5;
 	
 	var j = 0; 
-	$('#uglass :selected').each(function(i, selected){ 
+	$('#multiselect_to option').each(function(i, selected){ 
 	  j = j+1;
+		if(j > 4)
+		{
+			
+			alert("User can select only "+uno+" glasses");
+			return false;
+		}
 	});
 	
 	
-	if(j > 5)
-	{
-		alert("User can select only "+uno+" glasses");
-		return false;
-	}
+	
+	
 	
 });
 
