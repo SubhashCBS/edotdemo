@@ -11,6 +11,7 @@ var ComponentsIonSliders = function () {
                 from: 0,
                 to: 360,
                 step: 1,
+				values:[0, 95, 180, 275, 360],
                 postfix: "°",
                 prettify: true,
                 hasGrid: true,
@@ -18,6 +19,8 @@ var ComponentsIonSliders = function () {
 					$("#range_1").val(data.fromNumber);
 				}
             });
+			
+			
 			
 			$("#range_1-min").val(0);
 			$("#range_1-max").val(360);
@@ -28,6 +31,7 @@ var ComponentsIonSliders = function () {
                 from: 1,
                 to: 5,
                 step: 1,
+				values:[1, 2, 3, 4, 5],
                 prettify: false,
                 hasGrid: true,
 				onChange: function (data) {
