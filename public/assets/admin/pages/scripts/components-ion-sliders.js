@@ -15,8 +15,11 @@ var ComponentsIonSliders = function () {
                 postfix: "°",
                 prettify: true,
                 hasGrid: true,
-				onChange: function (data) {
-					$("#range_1").val(data.fromNumber);
+				onFinish: function (data) {
+					var x = [0, 95, 180, 275, 360];
+					$("#range_1").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_1_box").find(".single").css("left", dd+"px"); $(".range_1_box").find(".irs-single").css("left", dd+"px")}, 100);
 				}
             });
 			
@@ -35,7 +38,10 @@ var ComponentsIonSliders = function () {
                 prettify: false,
                 hasGrid: true,
 				onChange: function (data) {
-					$("#range_2").val(data.fromNumber);
+					var x = [1, 2, 3, 4, 5];
+					$("#range_2").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_2_box").find(".single").css("left", dd+"px"); $(".range_2_box").find(".irs-single").css("left", dd+"px")}, 100);
 				}
             });
 			
@@ -72,15 +78,19 @@ var ComponentsIonSliders = function () {
 			$("#range_6-max").val(5000);
 
             $("#range_4").ionRangeSlider({
-                min: 0.1,
+                min: 0,
                 max: 2,
-                from: 0.1,
+                from: 0,
                 to: 2,
                 step: 1,
+				values:[0, 0.5, 1, 1.5, 2],
                 prettify: false,
                 hasGrid: true,
 				onChange: function (data) {
-					$("#range_4").val(data.fromNumber);
+					var x = [0, 0.5, 1, 1.5, 2];
+					$("#range_4").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_4_box").find(".single").css("left", dd+"px"); $(".range_4_box").find(".irs-single").css("left", dd+"px")}, 100);
 				}
             });
 			
@@ -98,13 +108,78 @@ var ComponentsIonSliders = function () {
                 step: 1,
                 postfix: "°",
                 prettify: true,
-                hasGrid: true
+                hasGrid: true,
+				values:[0, 23, 46, 70, 900],
+				onChange: function (data) {
+					var x = [0, 0.5, 1, 1.5, 2];
+					$("#range_3_1").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_3_1_box").find(".single").css("left", dd+"px"); $(".range_3_1_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
+            });
+			
+			
+			$("#range_3_2").ionRangeSlider({
+                min: 0,
+                max: 90,
+                from: 0,
+                to: 90,
+                step: 1,
+                postfix: "°",
+                prettify: true,
+				disable:true,
+                hasGrid: true,
+				values:[0, 23, 46, 70, 900],
+				onChange: function (data) {
+					var x = [0, 0.5, 1, 1.5, 2];
+					$("#range_3_2").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_3_2_box").find(".single").css("left", dd+"px"); $(".range_3_2_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
+            });
+			
+			$("#range_3_3").ionRangeSlider({
+                min: 0,
+                max: 90,
+                from: 0,
+                to: 90,
+                step: 1,
+                postfix: "°",
+                prettify: true,
+				disable:true,
+                hasGrid: true,
+				values:[0, 23, 46, 70, 900],
+				onChange: function (data) {
+					var x = [0, 0.5, 1, 1.5, 2];
+					$("#range_3_3").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_3_3_box").find(".single").css("left", dd+"px"); $(".range_3_3_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
+            });
+			
+			$("#range_3_4").ionRangeSlider({
+                min: 0,
+                max: 90,
+                from: 0,
+                to: 90,
+                step: 1,
+                postfix: "°",
+                prettify: true,
+				disable:true,
+                hasGrid: true,
+				values:[0, 23, 46, 70, 900],
+				onChange: function (data) {
+					var x = [0, 0.5, 1, 1.5, 2];
+					$("#range_3_4").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_3_4_box").find(".single").css("left", dd+"px"); $(".range_3_4_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
             });
 			
 			
 			
 			
-			$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider({
+			/*$("#range_3_2, #range_3_3, #range_3_4").ionRangeSlider({
                 min: 0,
                 max: 90,
                 from: 0,
@@ -114,7 +189,7 @@ var ComponentsIonSliders = function () {
                 prettify: true,
                 hasGrid: true,
 				disable:true
-            });
+            });*/
 			
 			$("#range_3_1-min").val(0);
 			$("#range_3_1-max").val(90);
@@ -210,6 +285,13 @@ var ComponentsIonSliders = function () {
 
 }();
 
+
+function slide_update()
+{
+
+
+
+}
 
 $(".wwr").on("change", function(){
 	if($(this).val() == "same_dir")
