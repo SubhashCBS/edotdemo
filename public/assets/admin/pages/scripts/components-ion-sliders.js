@@ -109,9 +109,9 @@ var ComponentsIonSliders = function () {
                 postfix: "°",
                 prettify: true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 900],
+				values:[0, 23, 46, 70, 90],
 				onChange: function (data) {
-					var x = [0, 0.5, 1, 1.5, 2];
+					var x = [0, 23, 46, 70, 90];
 					$("#range_3_1").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_1_box").find(".single").css("left", dd+"px"); $(".range_3_1_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -129,9 +129,9 @@ var ComponentsIonSliders = function () {
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 900],
+				values:[0, 23, 46, 70, 90],
 				onChange: function (data) {
-					var x = [0, 0.5, 1, 1.5, 2];
+					var x = [0, 23, 46, 70, 90];
 					$("#range_3_2").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_2_box").find(".single").css("left", dd+"px"); $(".range_3_2_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -148,9 +148,9 @@ var ComponentsIonSliders = function () {
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 900],
+				values:[0, 23, 46, 70, 90],
 				onChange: function (data) {
-					var x = [0, 0.5, 1, 1.5, 2];
+					var x = [0, 23, 46, 70, 90];
 					$("#range_3_3").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_3_box").find(".single").css("left", dd+"px"); $(".range_3_3_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -167,9 +167,9 @@ var ComponentsIonSliders = function () {
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 900],
+				values:[0, 23, 46, 70, 90],
 				onChange: function (data) {
-					var x = [0, 0.5, 1, 1.5, 2];
+					var x = [0, 23, 46, 70, 90];
 					$("#range_3_4").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_4_box").find(".single").css("left", dd+"px"); $(".range_3_4_box").find(".irs-single").css("left", dd+"px")}, 100);
