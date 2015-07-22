@@ -1,9 +1,11 @@
-<?php echo $this->doctype();
+<!DOCTYPE html>
+
+<!-- define angular app -->
+<html ng-app="myApp">
+<?php //echo $this->doctype();
 $user = $this->identity();
  ?>
-
-<html lang="en">
-    <head>
+   <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<meta content="" name="description"/>
 		<meta content="" name="author"/>
@@ -55,6 +57,9 @@ $user = $this->identity();
 						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/themes/darkblue.css')
 						->appendStylesheet($this->basePath() .'/assets/admin/layout/css/custom.css')						
 		?>
+		  <!-- SPELLS -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+
     </head>
 <body class="page-header-fixed page-quick-sidebar-over-content page-full-width">
 <!-- BEGIN HEADER -->
