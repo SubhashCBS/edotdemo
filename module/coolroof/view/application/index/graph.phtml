@@ -3482,7 +3482,7 @@ var energyIndex = 0;
 	
 	var az = data[energyIndex].azimuth;
 	
-	$.each([0, 95, 180, 275, 360], function( i, l ){
+	$.each([0,45,90,135,180], function( i, l ){
 		if(az < l)
 		{
 		
@@ -3490,7 +3490,7 @@ var energyIndex = 0;
 		  return false;
 		}
 	});
-			var x = [0, 95, 180, 275, 360];
+			var x = [0,45,90,135,180];
 			$("#range_1").val(x[az]);
 			var dd = (az)*60;
 		 $(".range_1_box").find(".irs-single").html(x[az]);			
@@ -3535,7 +3535,7 @@ var oh = data[energyIndex].overhang;
 
 var wwr = data[energyIndex].wwr;
 	
-	$.each([0, 23, 46, 70, 90], function( i, l ){
+	$.each([10,30,50,70,90], function( i, l ){
 		if(wwr < l)
 		{
 		
@@ -3545,7 +3545,7 @@ var wwr = data[energyIndex].wwr;
 	});
 					
 					
-					var x = [0, 23, 46, 70, 90];
+					var x = [10,30,50,70,90];
 					$("#range_3_1").val(x[wwr]);
 					var dd = (wwr)*60;
 					$(".range_3_1_box").find(".irs-single").html(x[wwr]);

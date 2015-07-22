@@ -15,7 +15,7 @@
 .fpop{background:#4B77BE;padding:8px;margin-left:10px;color:white}
 .line{text-align:center !important}
 .radio input[type=radio]{margin-left:0px}
-.page-footer{height:15px}
+.page-footer{height:15px;clear:both}
 .slable{width:100px}
 .radio-list{height:30px;psotion:relative;z-index:1000}
 .irs-grid-pol{height:20px;width:3px}
@@ -208,7 +208,7 @@ canvas{background:#B4D7DB !important}
 						</div>
 
 				
-						<div class="portlet-body" style="min-height:470px">
+						<div class="portlet-body" style="min-height:400px">
 							<div class="form-group">
 								<div id="range_1_box">
 									<div style="float:left;" class="slable">
@@ -287,36 +287,9 @@ canvas{background:#B4D7DB !important}
 							
 							<div class="form-group">
 									<div  style="idth:600px;">
-										<div class="radio-list">
-											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same WWR
-											
-											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different WWR
-										</div>
-										<div id="swwr" style="display:none">										
+
 											<div style="float:left;" class="slable">
-												&nbsp;
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
-												<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_box">										  
-												<input type="text" value="" id="range_3-min" class="min" />
-											</div>
-											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_box">
-												<input id="range_3" type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="float:left;margin-left:5px;width:5%" class="range_3_box">										  
-												<input type="text" value="" id="range_3-max" class="max" />
-											</div>
-											<div id="range_3_text" style="display:none;float:left">
-												<input type="text" name="wwr[]" value=""/>
-											</div>
-												<div style="clear:both" ></div>
-										</div>
-										
-										<div id="dwwr" tyle="display:none">
-											<div style="float:left;" class="slable">
-												<strong>Front WWR(%)</strong>
+												<strong>WWR(%)</strong>
 											</div>
 											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
 												<span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
@@ -334,208 +307,58 @@ canvas{background:#B4D7DB !important}
 												<input type="text" name="wwr[]" value=""/>
 											</div>
 											<div style="clear:both" ></div>
-											
-											<div style="float:left;" class="slable">
-												<strong>Back WWR(%)</strong>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
-												<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_2_box">										  
-												<input type="text" value="" id="range_3_2-min" class="min" />
-											</div>
-											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_2_box">
-												<input id="range_3_2" type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="float:left;margin-left:5px;width:5%" class="range_3_2_box">										  
-												<input type="text" value="" id="range_3_2-max" class="max" />
-											</div>
-											<div id="range_3_2_text" style="float:left;display:none">
-												<input type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="clear:both" ></div>
-											
-											<div style="float:left;" class="slable">
-												<strong>Left WWR(%)</strong>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
-												<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_3_box">										  
-												<input type="text" value="" id="range_3_3-min" class="min" />
-											</div>
-											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_3_box">
-												<input id="range_3_3" type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="float:left;margin-left:5px;width:5%" class="range_3_3_box">										  
-												<input type="text" value="" id="range_3_3-max" class="max" />
-											</div>
-											<div id="range_3_3_text" style="float:left;display:none">
-												<input type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="clear:both" ></div>
-											
-											<div style="float:left;" class="slable">
-												<strong>Right WWR(%)</strong>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
-												<span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
-											</div>
-											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_4_box">										  
-												<input type="text" value="" id="range_3_4-min" class="min" />
-											</div>
-											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_4_box">
-												<input id="range_3_4" type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="float:left;margin-left:5px;width:5%" class="range_3_4_box">										  
-												<input type="text" value="" id="range_3_4-max" class="max" />
-											</div>
-											<div id="range_3_4_text" style="float:left;display:none">
-												<input type="text" name="wwr[]" value=""/>
-											</div>
-											<div style="clear:both" ></div>
-										 </div>
 								</div>			
 							</div>
-								<div style="width:95%;clear:both;border-bottom:1px solid gray;height:5px"></div>						
 							
+							<div class="form-group">
+								<div style="float:left;" class="slable">
+									<strong>Roof Type</strong>
+								</div>
+								<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+									<span tyle="float:right" class="lock" id="7_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+								</div>
+								<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_7_1_box">										  
+									<input type="text" value="" id="range_7_1-min" class="min" />
+								</div>
+								<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_7_1_box">
+									<input id="range_7_1" type="text" name="roof-type[]" value=""/>
+								</div>
+								<div style="float:left;margin-left:5px;width:5%" class="range_7_1_box">										  
+									<input type="text" value="" id="range_7_1-max" class="max" />
+								</div>
+								<div id="range_7_1_text" style="float:left;display:none">
+									<input type="text" name="roof-type[]" value=""/>
+								</div>
+								<div style="clear:both" ></div>
+							</div>
+							
+							
+							<div class="form-group">
+								<div style="float:left;" class="slable">
+									<strong>Wall Type</strong>
+								</div>
+								<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+									<span tyle="float:right" class="lock" id="8_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+								</div>
+								<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_8_1_box">										  
+									<input type="text" value="" id="range_8_1-min" class="min" />
+								</div>
+								<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_8_1_box">
+									<input id="range_8_1" type="text" name="wall-type[]" value=""/>
+								</div>
+								<div style="float:left;margin-left:5px;width:5%" class="range_8_1_box">										  
+									<input type="text" value="" id="range_8_1-max" class="max" />
+								</div>
+								<div id="range_8_1_text" style="float:left;display:none">
+									<input type="text" name="wall-type[]" value=""/>
+								</div>
+								<div style="clear:both" ></div>
+							</div>							
+							
+							
+						
 					<div class="form-group">
-						<div id="show2"   style="width:300px;float:left">
-								<div style="text-align:left;font-weight:bold">Roof Type</div>
-								<div style="margin-bottom:2px">	
-									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="4">      150mm Thick RCC Slab      </option>
-										<option value="5">      200mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="roof-type[]" value="" id="ews1" class="ews" style="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									
-									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
-										<option value="1">      Metal Surface         </option>
-										<option value="2" >      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="4">      150mm Thick RCC Slab      </option>
-										<option value="5" selected="">      200mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="roof-type[]" value="" id="ews2" class="ews" style="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
-									<option value="">Layer 3</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="4">      150mm Thick RCC Slab      </option>
-										<option value="5">      200mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9" selected="">     Insulation     </option>
-									</select>
-									<input type="text" name="roof-type[]" value="50" id="ews3" class="ews" tyle="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
-									<option value="">Layer 4</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="4">      150mm Thick RCC Slab      </option>
-										<option value="5">      200mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="roof-type[]" value="" id="ews4" class="ews" style="display:none" />
-								</div>
-									
-						</div>
-						<div class="portlet-body" id="show3" style="idth:150px;float:left">
-								<div style="text-align:left;font-weight:bold">Wall Type</div>
-								<div style="margin-bottom:2px">	
-									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
-									<option value="">Layer 1</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="5">      230mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="wall-type[]" value="" id="ews5" class="ews" style="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
-									<option value="">Layer 2</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" >      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="5" selected="">      230mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="wall-type[]" value="" id="ews6" class="ews" style="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
-									<option value="">Layer 3</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="5">      230mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9" selected="">     Insulation     </option>
-									</select>
-									<input type="text" name="wall-type[]" value="50" id="ews7" class="ews" tyle="display:none" />
-								</div>
-								
-								<div style="margin-bottom:2px">	
-									
-									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
-									<option value="">Layer 4</option>
-										<option value="1">      Metal Surface         </option>
-										<option value="2" selected="">      12mm thick motar       </option>
-										<option value="3">      Built-up roofing      </option>
-										<option value="5">      230mm Thick RCC Slab      </option>
-										<option value="6">      Gypsum Plasterboard      </option>
-										<option value="7">      Tile or slate      </option>
-										<option value="8">      Acoustic tile      </option>
-										<option value="9">     Insulation     </option>
-									</select>
-									<input type="text" name="wall-type[]" value="" id="ews8" class="ews" style="display:none" />
-								</div>
-									
-
-						</div>
-						<div style="width:95%;clear:both;border-bottom:1px solid gray;height:5px"></div>
-					</div>
-					
-					<div class="form-group">
-								<div style="text-align:center;width:72%;font-weight:bold">Glass Types</div>
+								<div style="font-weight:bold">Glass Types</div>
 								<div style="clear:both"></div>
 								<div style="isplay:none;width:600px;" id="show1">
 									<div class="gsd">
@@ -566,21 +389,10 @@ canvas{background:#B4D7DB !important}
 							</div>
 							
 					
-					<div class="form-group">
-						
-					</div>
-					
-					<div id="r5">
-							<div id="range_5_box">
-								<input type="text" value="" id="range_5-min" class="min" />
-								<input type="text" value="" id="range_5-max" class="max" />
-								
-								<input id="range_5" type="text" name="range_4" value=""/>
+					<div class="form-group" style="text-align:center;position:relative;top:80px">
+								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
+								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
 							</div>
-							<div id="range_5_text" style="display:none">
-								<input type="text" name="range_5" value=""/>
-							</div>
-					</div>	
 					
 						</div>
 						
@@ -631,11 +443,7 @@ canvas{background:#B4D7DB !important}
 				</div>
 				
 			</div>
-							<div class="form-group" Style="text-align:center;position:absolute;right:200px;top:580px">
-								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
-								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
-							</div>
-
+		
 	</form>		
 			
 			

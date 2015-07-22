@@ -7,16 +7,16 @@ var ComponentsIonSliders = function () {
             $("#range_1").ionRangeSlider({
 				type: "single",
                 min: 0,
-                max: 360,
+                max: 80,
                 from: 0,
-                to: 360,
+                to: 80,
                 step: 1,
-				values:[0, 95, 180, 275, 360],
+				values:[0,45,90,135,180],
                 postfix: "°",
                 prettify: true,
                 hasGrid: true,
 				onFinish: function (data) {
-					var x = [0, 95, 180, 275, 360];
+					var x = [0,45,90,135,180];
 					$("#range_1").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_1_box").find(".single").css("left", dd+"px"); $(".range_1_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -26,7 +26,7 @@ var ComponentsIonSliders = function () {
 			
 			
 			$("#range_1-min").val(0);
-			$("#range_1-max").val(360);
+			$("#range_1-max").val(180);
 
             $("#range_2").ionRangeSlider({
                 min: 1,
@@ -94,24 +94,63 @@ var ComponentsIonSliders = function () {
 				}
             });
 			
-			$("#range_4-min").val(0.1);
+			$("#range_4-min").val(0);
 			$("#range_4-max").val(2);
             
-            	
+			$("#range_7_1-min").val(25);
+			$("#range_7_1-max").val(125);
+			
+			$("#range_8_1-min").val(25);
+			$("#range_8_1-max").val(125);
+			
+            $("#range_7_1").ionRangeSlider({
+                min: 25,
+                max: 125,
+                from: 25,
+                to: 125,
+                step: 1,
+                prettify: true,
+                hasGrid: true,
+				values:[25,50,75,100,125],
+				onChange: function (data) {
+					var x = [25,50,75,100,125];
+					$("#range_7_1").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_7_1_box").find(".single").css("left", dd+"px"); $(".range_7_1_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
+            });
+				
+
+            $("#range_8_1").ionRangeSlider({
+                min: 25,
+                max: 125,
+                from: 25,
+                to: 125,
+                step: 1,
+                prettify: true,
+                hasGrid: true,
+				values:[25,50,75,100,125],
+				onChange: function (data) {
+					var x = [25,50,75,100,125];
+					$("#range_8_1").val(x[data.fromNumber]);
+					var dd = (data.fromNumber)*60;
+					setTimeout(function(){ $(".range_8_1_box").find(".single").css("left", dd+"px"); $(".range_8_1_box").find(".irs-single").css("left", dd+"px")}, 100);
+				}
+            });
 				
 				
 			$("#range_3_1").ionRangeSlider({
-                min: 0,
+                min: 10,
                 max: 90,
-                from: 0,
+                from: 10,
                 to: 90,
                 step: 1,
                 postfix: "°",
                 prettify: true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 90],
+				values:[10,30,50,70,90],
 				onChange: function (data) {
-					var x = [0, 23, 46, 70, 90];
+					var x = [10,30,50,70,90];
 					$("#range_3_1").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_1_box").find(".single").css("left", dd+"px"); $(".range_3_1_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -120,18 +159,18 @@ var ComponentsIonSliders = function () {
 			
 			
 			$("#range_3_2").ionRangeSlider({
-                min: 0,
+                min: 10,
                 max: 90,
-                from: 0,
+                from: 10,
                 to: 90,
                 step: 1,
                 postfix: "°",
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 90],
+				values:[10,30,50,70,90],
 				onChange: function (data) {
-					var x = [0, 23, 46, 70, 90];
+					var x = [10,30,50,70,90];
 					$("#range_3_2").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_2_box").find(".single").css("left", dd+"px"); $(".range_3_2_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -139,18 +178,18 @@ var ComponentsIonSliders = function () {
             });
 			
 			$("#range_3_3").ionRangeSlider({
-                min: 0,
+                min: 10,
                 max: 90,
-                from: 0,
+                from: 10,
                 to: 90,
                 step: 1,
                 postfix: "°",
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 90],
+				values:[10,30,50,70,90],
 				onChange: function (data) {
-					var x = [0, 23, 46, 70, 90];
+					var x = [10,30,50,70,90];
 					$("#range_3_3").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_3_box").find(".single").css("left", dd+"px"); $(".range_3_3_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -158,18 +197,18 @@ var ComponentsIonSliders = function () {
             });
 			
 			$("#range_3_4").ionRangeSlider({
-                min: 0,
+                min: 10,
                 max: 90,
-                from: 0,
+                from: 10,
                 to: 90,
                 step: 1,
                 postfix: "°",
                 prettify: true,
 				disable:true,
                 hasGrid: true,
-				values:[0, 23, 46, 70, 90],
+				values:[10,30,50,70,90],
 				onChange: function (data) {
-					var x = [0, 23, 46, 70, 90];
+					var x = [10,30,50,70,90];
 					$("#range_3_4").val(x[data.fromNumber]);
 					var dd = (data.fromNumber)*60;
 					setTimeout(function(){ $(".range_3_4_box").find(".single").css("left", dd+"px"); $(".range_3_4_box").find(".irs-single").css("left", dd+"px")}, 100);
@@ -191,22 +230,22 @@ var ComponentsIonSliders = function () {
 				disable:true
             });*/
 			
-			$("#range_3_1-min").val(0);
+			$("#range_3_1-min").val(10);
 			$("#range_3_1-max").val(90);
 			
-			$("#range_3_2-min").val(0);
+			$("#range_3_2-min").val(10);
 			$("#range_3_2-max").val(90);
 			
-			$("#range_3_3-min").val(0);
+			$("#range_3_3-min").val(10);
 			$("#range_3_3-max").val(90);
 			
-			$("#range_3_4-min").val(0);
+			$("#range_3_4-min").val(10);
 			$("#range_3_4-max").val(90);
 
 			$("#range_3").ionRangeSlider({
-                min: 0,
+                min: 10,
                 max: 90,
-                from: 0,
+                from: 10,
                 to: 90,
                 step: 1,
                 postfix: "°",
@@ -214,7 +253,7 @@ var ComponentsIonSliders = function () {
                 hasGrid: true
             });
 			
-			$("#range_3-min").val(0);
+			$("#range_3-min").val(10);
 			$("#range_3-max").val(90);
 		
 				$("#range_3_2-min, #range_3_3-min, #range_3_4-min").attr("disabled", "disabled");			
