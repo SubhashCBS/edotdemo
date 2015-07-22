@@ -1,0 +1,696 @@
+<style type="text/css">
+.page-header.navbar .page-logo .logo-default{margin:0px;margin-top:2px}
+.portlet.box.blue-steel{}
+.ews{width:25px}
+.gsd{width:210px;float:left}
+.gsd2{width:50px;float:left}
+.blue-steel{margin-left:20px}
+.portlet-title .caption{padding:2px 0px !important;font-size:15px !important;}
+.portlet-title{padding:0px !important;min-height:18px !important;}
+.irs-min, .irs-max{display:none !important}
+.min, .max{width:25px;height:20px;}
+.lock img{height:30px}
+.control-label{clear:both;display:block}
+.form-group{margin-bottom:0px}
+.fpop{background:#4B77BE;padding:8px;margin-left:10px;color:white}
+.line{text-align:center !important}
+.radio input[type=radio]{margin-left:0px}
+.page-footer{height:15px}
+.slable{width:100px}
+.radio-list{height:30px;psotion:relative;z-index:1000}
+.irs-grid-pol{height:20px;width:3px}
+.irs-grid .small{display:none}
+.irs-grid-text{display:none}
+.irs-with-grid{height:40px}
+.irs-line{height:3px !important;top:29px !important;}
+.irs-single{top:8px;left:2px}
+.irs-from:after, .irs-to:after, .irs-single:after{display:none}
+.irs-from, .irs-to, .irs-single{padding-left:0px}
+.tab-content{height:450px !important}
+canvas{background:#B4D7DB !important}
+</style>
+<?php //print_r($user_glass_types); ?>
+<img STYLE="width:400px;float:right;display:none" src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/mlogo.png" alt="logo" class="logo-default"/>
+<div STYLE="width:400px;float:right;display:none">
+<?php if($user = $this->identity()) { ?> 
+    <a href="<?php echo $this->url('user-index');?>" class="btn btn-success">
+      <?php echo $this->translate('User Home'); ?>
+    </a>
+	<a href="<?php echo $this->url('user-register', array('action' => 'edit-profile'));?>" class="btn btn-success">
+	  <?php echo $this->translate('Edit Profile'); ?>
+	</a> 
+	<a href="<?php echo $this->url('user-index', array('action' => 'logout'))?>" class="btn btn-success">
+	  <?php echo $this->translate('Log Out'); ?>
+	</a>
+<?php
+  } else { ?>
+	<a href="<?php echo $this->url('user-index', array('action' => 'login'))?>" class="btn btn-success">
+	  <?php echo $this->translate('Log in'); ?>
+	</a>
+	<a href="<?php echo $this->url('user-register');?>" class="btn btn-success">
+	  <?php echo $this->translate('Sign Up'); ?>
+	</a>
+	<a href="<?php echo $this->url('user-register', array('action' => 'reset-password'));?>" class="btn btn-success">
+	  <?php echo $this->translate('Reset Password'); ?>
+	</a>
+<?php } ?>
+</div>
+
+	<form method="post" name="simulation-from" id="simulation-from" onsubmit="" style="width:98%">
+
+		
+		<div class="portlet-body form" style="margin-top:10px;margin-bottom:10px;">
+			<input type="hidden" id="cmin" />
+			<input type="hidden" id="cmax" />
+			<div class="form-group" style="float:left">
+				<div style="display:inline-block;margin-left:10px">	
+					<label class="control-label">Location</label>
+					<select style="display:inline-block" name="location" class="input-small">
+						<option value="">Ahmedabad</option>
+						<option value="">Akola</option>
+						<option value="">Allahabad</option>
+						<option value="">Amritsar</option>
+						<option value="">Aurangabad</option>
+						<option value="Banglore.epw">Bangalore</option>
+						<option value="">Barmer</option>
+						<option value="">Belgaum</option>
+						<option value="">Bhagalpur</option>
+						<option value="">Bhopal</option>
+						<option value="">Bhubneshwar</option>
+						<option value="">Bikaner</option>
+						<option value="">Chennai-Madras</option>
+						<option value="">Chirtadurg</option>
+						<option value="">Dehradun</option>
+						<option value="">Dibrugarh</option>
+						<option value="">Gorakhpur</option>
+						<option value="">Guwahati</option>
+						<option value="">Gwalior</option>
+						<option value="">Hissar</option>
+						<option selected="selected" value="Hyderabad.epw">Hyderabad</option>
+						<option value="">Imphal</option>
+						<option value="">Indore</option>
+						<option value="">Jabalpur</option>
+						<option value="">Jagdelpur</option>
+						<option value="">Jaipur</option>
+						<option value="">Jaisalmer</option>
+						<option value="">Jamnagar</option>
+						<option value="">Jodhpur</option>
+						<option value="">Jorhat</option>
+						<option value="Calcutta.epw">Kolkata</option>
+						<option value="">Kota</option>
+						<option value="">Kurnool</option>
+						<option value="">Lucknow</option>
+						<option value="">Mangalore</option>
+						<option value="">Mumbai</option>
+						<option value="">Nagpur</option>
+						<option value="">Nellore</option>
+						<option value="New_Delhi.epw">New Delhi</option>
+						<option value="">Panjim</option>
+						<option value="">Patna</option>
+						<option value="">Pune</option>
+						<option value="">Raipur</option>
+						<option value="">Rajkot</option>
+						<option value="">Ramagundam</option>
+						<option value="">Ranchi</option>
+						<option value="">Ratnagiri</option>
+						<option value="">Raxaul</option>
+						<option value="">Saharanpur</option>
+						<option value="">Shillong</option>
+						<option value="">Sholapur</option>
+						<option value="">Sundernagar</option>
+						<option value="">Surat</option>
+						<option value="">Tezpur</option>
+						<option value="">Tiruchirapalli</option>
+						<option value="">Trivandram</option>
+						<option value="">Veraval</option>
+						<option value="">Vishakhapatnam</option>
+					</select>
+				</div>
+				
+			
+				<div style="display:inline-block;margin-left:10px">
+					<label class="control-label">Building Length&nbsp;<small>(meters)</small></label>
+					<div style="display:inline-block">
+						<input type="text" class="input-small" name="plot-lenght" value="50">
+					</div>
+				</div>
+				
+				<div style="display:inline-block;margin-left:10px">
+					<label class="control-label">Building Width&nbsp;<small>(meters)</small></label>
+					<div style="display:inline-block">
+						<input type="text" class="input-small" name="plot-width"  value="30">
+					</div>
+				</div>
+				
+				<div style="display:inline-block;margin-left:10px">
+					<label class="control-label">Building Area&nbsp;<small>(Square meter)</small></label>
+					<div style="display:inline-block">
+						<input type="text" class="input-small" name="building-area"   value="1500">
+					</div>
+				</div>
+				
+				<div style="display:inline-block;margin-left:10px">	
+				<label class="control-label">AC Type</label>
+					<select style="display:inline-block" class=" input-small" name="ac-type">
+						<option value="0">Window/Split air conditioner,  Heating source: Electric Heat Pump</option>
+						<option value="1">Central VAV system with air cooled chiller, Heating Source : Electric Resistance</option>
+						<option value="2">Central VAV system with water cooled screw chiller, Heating Source : Electric Resistance</option>
+						<option value="3">Packaged rooftop air conditioner, Heating source: Electric Heat Pump</option>
+						<option value="4">Unconditioned: No system</option>
+						<option value="5">PTAC</option>
+						<option value="6" selected="selected">PTHP</option>
+					</select>
+				</div>
+			</div>
+			
+			
+			
+			<div lass="form-group">
+				<div style="display:inline-block;margin-left:10px">
+					<label class="control-label">Day Light Controls</label>
+					<div class="actions" style="display:inline-block">
+								<input type="checkbox" name="day-light" class="make-switch" checked data-size="small" data-on="success" data-off="warning">
+					</div>
+				</div>
+				
+				<div style="display:inline-block;margin-left:10px">
+					<label class="control-label">Internal Shading Controls</label>
+					<div class="actions" style="display:inline-block">
+						<select style="display:inline-block" name="internal-shading-controls" class=" input-small">
+						<option>No shading controls</option>
+						<option>Outside air temperature</option>
+						<option>Solar radiation</option>
+						<option>Glare</option>
+					</select>		
+					</div>
+				</div>
+				
+				<div style="display:inline-block;margin-left:10px">
+					<div class="checkbox">
+						<label><input type="checkbox" name="cool-roof" id="croof"> Cool Roof </label>
+					</div>
+				</div>
+			</div>
+		
+		
+		</div>
+
+			
+			
+			<div class="row">
+			
+				<div lass="col-md-6" style="width:40%;float:left;">
+					<div class="portlet box blue-steel">
+						<div class="portlet-title">
+							<div class="caption">
+								Define
+							</div>
+						</div>
+
+				
+						<div class="portlet-body" style="min-height:470px">
+							<div class="form-group">
+								<div id="range_1_box">
+									<div style="float:left;" class="slable">
+										<strong>Azimuth(dg)</strong>
+									</div>
+									<div style="float:left;width:5%;margin-left:10px;width:5%;margin-right:10px" class="slable">
+										<span tyle="float:right" class="lock" id="1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;margin-left:10px;width:5%;margin-right:10px" class="range_1_box">
+										<input type="text" value="" id="range_1-min" class="min" />
+									</div>
+									<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_1_box">
+										<input type="text" id="range_1" class="azimuth" />
+									</div>
+									<div style="float:left;width:5%;margin-left:5px" class="range_1_box">
+										<input type="text" value="" id="range_1-max" class="max" />
+									</div>
+									<div id="range_1_text" style="float:left;width:40%;position:relative;display:none">
+										<input type="text" class="azimuth"  value=""/>
+									</div>
+									<div style="clear:both" ></div>
+								</div>
+								<input type="hidden" id="azimuth" name="azimuth" value=""/>
+							</div>
+							
+							<div class="form-group">
+								<div id="range_1_box">
+									<div style="float:left;" class="slable">
+										<strong>Aspect Ratio(%)</strong>  
+									</div>
+									<div style="float:left;width:5%;margin-left:10px;width:5%;margin-right:10px" class="slable">
+										<span tyle="float:right" class="lock" id="2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;margin-left:10px;width:5%;margin-right:10px" class="range_2_box">
+										<input type="text" value="" id="range_2-min" class="min" />
+									</div>
+									<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_2_box">
+										<input type="text" id="range_2" class="aspect-ratio" />
+									</div>
+									<div style="float:left;width:5%;margin-left:5px" class="range_2_box">
+										<input type="text" value="" id="range_2-max" class="max" />
+									</div>
+									<div id="range_2_text" style="float:left;display:none">
+										<input type="text" class="aspect-ratio" value=""/>
+									</div>
+									<div style="clear:both" ></div>
+								</div>
+								<input type="hidden" id="aspect-ratio" name="aspect-ratio" value=""/>
+							</div>
+							
+							<div class="form-group">
+								<div id="range_1_box">
+									<div style="float:left;" class="slable">
+										<strong>Overhang(m)</strong>
+									</div>
+									<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+										<span tyle="float:right" class="lock" id="4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+									</div>
+									<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_4_box">										  
+										<input type="text" value="" id="range_4-min" class="min" />
+									</div>
+									<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_4_box">
+										<input type="text" id="range_4" class="over-hang" />
+									</div>
+									<div style="float:left;margin-left:5px;width:5%" class="range_4_box">										  
+										<input type="text" value="" id="range_4-max" class="max" />
+									</div>
+									<div id="range_4_text" style="float:left;display:none">
+										<input type="text" class="over-hang" value=""/>
+									</div>
+									<div style="clear:both" ></div>
+								</div>
+								<input type="hidden" id="over-hang" name="over-hang" value=""/>
+							</div>
+
+							
+							<div class="form-group">
+									<div  style="idth:600px;">
+										<div class="radio-list">
+											<input type="radio" name="wwr-direction" id="wwr" class="wwr" value="same_dir" checked> Same WWR
+											
+											<input type="radio" name="wwr-direction" id="wwr2" class="wwr" value="different_dir"> Different WWR
+										</div>
+										<div id="swwr" style="display:none">										
+											<div style="float:left;" class="slable">
+												&nbsp;
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+												<span tyle="float:right" class="lock" id="3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_box">										  
+												<input type="text" value="" id="range_3-min" class="min" />
+											</div>
+											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_box">
+												<input id="range_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:5px;width:5%" class="range_3_box">										  
+												<input type="text" value="" id="range_3-max" class="max" />
+											</div>
+											<div id="range_3_text" style="display:none;float:left">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+												<div style="clear:both" ></div>
+										</div>
+										
+										<div id="dwwr" tyle="display:none">
+											<div style="float:left;" class="slable">
+												<strong>Front WWR(%)</strong>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+												<span tyle="float:right" class="lock" id="3_1"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_1_box">										  
+												<input type="text" value="" id="range_3_1-min" class="min" />
+											</div>
+											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_1_box">
+												<input id="range_3_1" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:5px;width:5%" class="range_3_1_box">										  
+												<input type="text" value="" id="range_3_1-max" class="max" />
+											</div>
+											<div id="range_3_1_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+											
+											<div style="float:left;" class="slable">
+												<strong>Back WWR(%)</strong>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+												<span tyle="float:right" class="lock" id="3_2"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_2_box">										  
+												<input type="text" value="" id="range_3_2-min" class="min" />
+											</div>
+											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_2_box">
+												<input id="range_3_2" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:5px;width:5%" class="range_3_2_box">										  
+												<input type="text" value="" id="range_3_2-max" class="max" />
+											</div>
+											<div id="range_3_2_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+											
+											<div style="float:left;" class="slable">
+												<strong>Left WWR(%)</strong>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+												<span tyle="float:right" class="lock" id="3_3"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_3_box">										  
+												<input type="text" value="" id="range_3_3-min" class="min" />
+											</div>
+											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_3_box">
+												<input id="range_3_3" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:5px;width:5%" class="range_3_3_box">										  
+												<input type="text" value="" id="range_3_3-max" class="max" />
+											</div>
+											<div id="range_3_3_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+											
+											<div style="float:left;" class="slable">
+												<strong>Right WWR(%)</strong>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="slable">
+												<span tyle="float:right" class="lock" id="3_4"><img src="<?php echo $this->basePath(); ?>/assets/admin/layout/img/lock.png" /></span>
+											</div>
+											<div style="float:left;width:5%;margin-left:10px;margin-right:10px" class="range_3_4_box">										  
+												<input type="text" value="" id="range_3_4-min" class="min" />
+											</div>
+											<div style="float:left;width:50%;position:relative;top:-20px;margin-bottom:-10px" class="range_3_4_box">
+												<input id="range_3_4" type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="float:left;margin-left:5px;width:5%" class="range_3_4_box">										  
+												<input type="text" value="" id="range_3_4-max" class="max" />
+											</div>
+											<div id="range_3_4_text" style="float:left;display:none">
+												<input type="text" name="wwr[]" value=""/>
+											</div>
+											<div style="clear:both" ></div>
+										 </div>
+								</div>			
+							</div>
+								<div style="width:95%;clear:both;border-bottom:1px solid gray;height:5px"></div>						
+							
+					<div class="form-group">
+						<div id="show2"   style="width:300px;float:left">
+								<div style="text-align:left;font-weight:bold">Roof Type</div>
+								<div style="margin-bottom:2px">	
+									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="4">      150mm Thick RCC Slab      </option>
+										<option value="5">      200mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="roof-type[]" value="" id="ews1" class="ews" style="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									
+									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+										<option value="1">      Metal Surface         </option>
+										<option value="2" >      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="4">      150mm Thick RCC Slab      </option>
+										<option value="5" selected="">      200mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="roof-type[]" value="" id="ews2" class="ews" style="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+									<option value="">Layer 3</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="4">      150mm Thick RCC Slab      </option>
+										<option value="5">      200mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9" selected="">     Insulation     </option>
+									</select>
+									<input type="text" name="roof-type[]" value="50" id="ews3" class="ews" tyle="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									<select style="display:inline-block" name="roof-type[]" class="input-small layers">
+									<option value="">Layer 4</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="4">      150mm Thick RCC Slab      </option>
+										<option value="5">      200mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="roof-type[]" value="" id="ews4" class="ews" style="display:none" />
+								</div>
+									
+						</div>
+						<div class="portlet-body" id="show3" style="idth:150px;float:left">
+								<div style="text-align:left;font-weight:bold">Wall Type</div>
+								<div style="margin-bottom:2px">	
+									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 1</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="5">      230mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="wall-type[]" value="" id="ews5" class="ews" style="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 2</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" >      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="5" selected="">      230mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="wall-type[]" value="" id="ews6" class="ews" style="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 3</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="5">      230mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9" selected="">     Insulation     </option>
+									</select>
+									<input type="text" name="wall-type[]" value="50" id="ews7" class="ews" tyle="display:none" />
+								</div>
+								
+								<div style="margin-bottom:2px">	
+									
+									<select name="wall-type[]" style="display:inline-block" class="input-small layers">
+									<option value="">Layer 4</option>
+										<option value="1">      Metal Surface         </option>
+										<option value="2" selected="">      12mm thick motar       </option>
+										<option value="3">      Built-up roofing      </option>
+										<option value="5">      230mm Thick RCC Slab      </option>
+										<option value="6">      Gypsum Plasterboard      </option>
+										<option value="7">      Tile or slate      </option>
+										<option value="8">      Acoustic tile      </option>
+										<option value="9">     Insulation     </option>
+									</select>
+									<input type="text" name="wall-type[]" value="" id="ews8" class="ews" style="display:none" />
+								</div>
+									
+
+						</div>
+						<div style="width:95%;clear:both;border-bottom:1px solid gray;height:5px"></div>
+					</div>
+					
+					<div class="form-group">
+								<div style="text-align:center;width:72%;font-weight:bold">Glass Types</div>
+								<div style="clear:both"></div>
+								<div style="isplay:none;width:600px;" id="show1">
+									<div class="gsd">
+										<select name="from" id="multiselect" class="form-control" size="4" multiple="multiple" style="overflow-x:scroll;padding:0px">
+											<?php
+											$i = 0;
+											foreach($user_glass_types as $ug)
+											{
+												$i++;
+											?>
+												<option value="<?php echo $i; ?>"><?php echo $ug->name; ?>(U-<?php echo $ug->USI; ?>,SHGS-<?php echo $ug->SolarHeat; ?>,VLT-<?php echo $ug->VisibleTrans; ?>)</option>
+											<?php
+											}
+											?>
+										</select>
+									</div>
+									
+									<div class="gsd2" style="position:relative;top:5px">
+										<button type="button" id="multiselect_rightSelected" onclick="return false" class="btn-block">-></button>
+										<button type="button" id="multiselect_leftSelected" class="btn-block"><-</button>									
+									</div>
+									
+									<div class="gsd">
+										<select name="glass-types[]" id="multiselect_to" class="form-control" size="3" multiple="multiple"></select>
+									</div>
+									
+								</div>
+							</div>
+							
+					
+					<div class="form-group">
+						
+					</div>
+					
+					<div id="r5">
+							<div id="range_5_box">
+								<input type="text" value="" id="range_5-min" class="min" />
+								<input type="text" value="" id="range_5-max" class="max" />
+								
+								<input id="range_5" type="text" name="range_4" value=""/>
+							</div>
+							<div id="range_5_text" style="display:none">
+								<input type="text" name="range_5" value=""/>
+							</div>
+					</div>	
+					
+						</div>
+						
+						
+					</div>
+				</div>
+				
+				<div class="col-md-6" style="width:50%;height:400px">
+					<div class="portlet-body" id="portlet-body">
+						<ul class="nav nav-tabs" style="margin-bottom:0px">
+							<li class="active">
+								<a href="#tab_1_1" data-toggle="tab">
+								3D View </a>
+							</li>
+							<li>
+								<a href="#tab_1_2" data-toggle="tab">
+								Plan </a>
+							</li>
+							<li >
+								<a href="#tab_1_3" data-toggle="tab">
+								Elevation
+								</a>
+							</li>
+							
+							<li>
+								<a href="#tab_1_4" data-toggle="tab">
+								Glass Properties
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content"   style="border:1px solid #ddd;border-top:none;">
+							<div class="tab-pane fade active in" id="tab_1_1">
+				
+							</div>
+							<div class="tab-pane fade" id="tab_1_2">
+								
+							</div>
+							<div class="tab-pane fade" id="tab_1_3">
+								
+							</div>
+							<div class="tab-pane fade" id="tab_1_4">
+								
+							</div>
+							
+						</div>
+
+					</div>
+				</div>
+				
+			</div>
+							<div class="form-group" Style="text-align:center;position:absolute;right:200px;top:580px">
+								<input type="button" onclick="setvalues()" value="Simulate" class="btn blue" />
+								<button type="submit" style="margin-left:30px" class="btn blue">Reset All</button>
+							</div>
+
+	</form>		
+			
+			
+<script type="text/javascript">
+function setvalues()
+{
+$(window).scrollTop( 250 );
+
+	$(".azimuth").each(function() {
+		var am  = $(this).val();
+		
+		if(am != "")
+		{
+			$("#azimuth").val(am);
+		}
+	});
+	
+	$(".aspect-ratio").each(function() {
+		var am  = $(this).val();
+		if(am != "")
+		{
+			$("#aspect-ratio").val(am);
+		}
+	});
+	
+	$(".over-hang").each(function() {
+		var am  = $(this).val();
+		
+		if(am != "")
+		{
+			$("#over-hang").val(am);
+		}
+	});
+	
+	var frm = $("#simulation-from");
+ var data = frm.serializeArray();
+	
+
+	  
+	  	$.ajax({
+			   type: "POST",
+			   url: "/edotdemo/public/coolroof/index/mycommandfilegenerator",
+			   data:data,
+			   beforeSend: function(){
+				   $("#portlet-body").html("<img src='<?php echo $this->basePath(); ?>/assets/admin/layout/img/loading.gif' />");
+
+			   },
+			   success: function(msg)
+			   {
+					   $("#portlet-body").html(msg);
+$(window).scrollTop( 350 );
+drawCube1("cvs1", data[energyIndex]);
+			   }
+           });
+	
+	return false;
+}
+</script>			
