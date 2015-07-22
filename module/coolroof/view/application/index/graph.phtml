@@ -3464,6 +3464,14 @@ var energyIndex = 0;
                 hasGrid: true,
 				 orientation: "vertical",
 				onChange: function (value) {
+				$("#energyTd").find(".irs-line").css("width", "400px"); 
+				
+				var x = initval;
+					
+					var dd1 = value.fromNumber/3;
+					
+					setTimeout(function(){ $("#energyTd").find(".single").css("left", dd1+"px"); $("#energyTd").find(".irs-single").css("left", dd1+"px")}, 100);
+				
 					var can_no = $(".active").attr("id");
 					 energyIndex = value.fromNumber;
 					 
@@ -3517,6 +3525,8 @@ var oh = data[energyIndex].overhang;
 		}
 	});
 	
+	
+	
 					var x = [0, 0.5, 1, 1.5, 2];
 					$("#range_4").val(x[oh]);
 					var dd = (oh)*60;
@@ -3548,6 +3558,8 @@ var wwr = data[energyIndex].wwr;
 				
 				}
             });				
+	
+	$("#energyTd").find(".irs-line").css("width", "400px"); 
 	
     $($("#slider-vertical").children()[0]).html("<span style=\"left:20px;position:relative;\">"+data[energyIndex].energy.toFixed(1)+"</span>");
     updateshgc(data[energyIndex].shgc);
